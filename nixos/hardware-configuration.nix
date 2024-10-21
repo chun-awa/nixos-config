@@ -1,10 +1,13 @@
 # This is just an example, you should generate yours with nixos-generate-config and put it in here.
 {
-  boot.loader.systemd-boot.enable = true;
-
   fileSystems."/" = {
-    device = "/dev/sda1";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = [
+      "subvol=/root"
+      "noatime"
+      "compress=zstd"
+    ]
   };
 
   # Set your system kind (needed for flakes)
