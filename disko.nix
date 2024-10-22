@@ -15,7 +15,6 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot/efi";
-                mountOptions = [ "umask=0077" ];
               };
             };
             nixos = {
