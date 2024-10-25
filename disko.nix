@@ -25,15 +25,15 @@
                 subvolumes = {
                   "/root" = {
                     mountpoint = "/";
-                    mountOptions = ["subvol=root" "noatime"];
+                    mountOptions = ["subvol=/root" "noatime"];
                   };
                   "/home" = {
                     mountpoint = "/home";
-                    mountOptions = ["subvol=home" "noatime"];
+                    mountOptions = ["subvol=/home" "noatime"];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["subvol=nix" "noatime"];
+                    mountOptions = ["subvol=/nix" "noatime"];
                   };
                   "/swap" = {
                     mountpoint = "/swap";
