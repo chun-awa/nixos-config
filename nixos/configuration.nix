@@ -58,7 +58,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gtk alacritty
+    alacritty
   ];
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -89,6 +89,7 @@
     };
     displayManager.defaultSession = "xfce";
   };
+  xdg.portal.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
