@@ -32,6 +32,7 @@
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot/efi";
       };
+    };
   };
   nixpkgs = {
     # You can add overlays here
