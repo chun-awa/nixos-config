@@ -93,7 +93,7 @@
   users.users = {
     chun = {
       isNormalUser = true;
-      extraGroups = ["wheel","video","audio","games","netwotkmanager"];
+      extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     };
   };
 
