@@ -58,9 +58,6 @@
       allowUnfree = true;
     };
   };
-  environment.systemPackages = with pkgs; [
-    alacritty
-  ];
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
@@ -81,7 +78,9 @@
   };
 
   nixpkgs.config.pulseaudio = true;
-
+  environment.systemPackages = with pkgs; [
+    alacritty
+  ];
   services.xserver = {
     enable = true;
     desktopManager = {
