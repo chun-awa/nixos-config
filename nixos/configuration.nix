@@ -28,10 +28,11 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
     };
   };
   nixpkgs = {
