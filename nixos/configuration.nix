@@ -57,7 +57,9 @@
       allowUnfree = true;
     };
   };
-
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-gtk alacritty
+  ];
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
