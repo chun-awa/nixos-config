@@ -23,7 +23,16 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
-
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot/efi";
+      };
+  };
   nixpkgs = {
     # You can add overlays here
     overlays = [
