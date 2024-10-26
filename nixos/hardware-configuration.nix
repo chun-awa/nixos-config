@@ -7,7 +7,7 @@
       "subvol=/root"
       "noatime"
       "compress=zstd"
-    ]
+    ];
   };
 
   # Set your system kind (needed for flakes)
