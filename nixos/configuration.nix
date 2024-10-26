@@ -78,9 +78,6 @@
   };
 
   nixpkgs.config.pulseaudio = true;
-  environment.systemPackages = with pkgs; [
-    alacritty
-  ];
   services.xserver = {
     enable = true;
     desktopManager = {
