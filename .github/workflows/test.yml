@@ -10,4 +10,6 @@ jobs:
     steps:
     - uses: cachix/install-nix-action@v30
     - name: Install nixos-install-tools
-      run: nix-env -f '<nixpkgs>' -iA nixos-install-tools
+      run: |
+        nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
+        nix-env -f '<nixpkgs>' -iA nixos-install-tools
