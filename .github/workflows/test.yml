@@ -12,9 +12,9 @@ jobs:
     - uses: cachix/install-nix-action@v30
     - name: Install nixos-install-tools
       run: |
-        nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
-        nix-channel --update
-        nix-env -f '<nixpkgs>' -iA nixos-install-tools
+        sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
+        sudo nix-channel --update
+        sudo nix-env -f '<nixpkgs>' -iA nixos-install-tools
     - name: Set up disk image
       run: |
         sudo apt install qemu-utils
@@ -24,4 +24,7 @@ jobs:
     - name: Run disko
       run: |
         sed -i 's|/dev/nbd0|/dev/nvme0n1|g' disko.nix
-        sudo nix -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
+        sudo nix-channel --add https://github.com/nix-community/disko/archive/master.tar.gz disko
+        sudo nix-channel --update
+        sudo nix-env -f '<nixpkgs>' -iA disko
+        sudo `which disko` --mode disko disko.nix
