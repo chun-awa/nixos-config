@@ -8,10 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v30
     - name: Install nixos-install-tools
       run: |
         nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
         nix-channel --update
-        nix-channel --list
         nix-env -f '<nixpkgs>' -iA nixos-install-tools
+    - name: Set up disk image
+      run: |
+        sudo apt install qemu-utils
+        sudo modprobe nbd max_part=16
+        sudo qemu-img create -f qcow2 disk.qcow2 30g
+        sudo qemu-nbd -c /dev/nbd0 disk.qcow2
+    - name: Run disko
+      run: |
+        sed -i 's|/dev/nbd0|/dev/nvme0n1|g' disko.nix
+        sudo nix -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
