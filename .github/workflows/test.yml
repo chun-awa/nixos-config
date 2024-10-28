@@ -27,5 +27,5 @@ jobs:
         nix-channel --add https://github.com/nix-community/disko/archive/master.tar.gz disko
         nix-channel --update
         nix-env -f '<nixpkgs>' -iA disko
-        echo $NIX_PATH
+        export NIX_PATH=/nix/var/nix/profiles/per-user/root/channels
         sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which disko` --mode disko disko.nix
