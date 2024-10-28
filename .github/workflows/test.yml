@@ -17,11 +17,9 @@ jobs:
         nix-env -f '<nixpkgs>' -iA nixos-install-tools
     - name: Set up disk image
       run: |
-        sudo apt install qemu-utils
+        sudo apt-get install qemu-utils -y
         sudo modprobe nbd max_part=16
         sudo qemu-img create -f qcow2 disk.qcow2 30g
         sudo qemu-nbd -c /dev/nbd0 disk.qcow2
     - name: Run disko
-      run: |
-        sed -i 's|/dev/nbd0|/dev/nvme0n1|g' disko.nix
-        sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
+      run: sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko --arg disko.devices.disk.main.device /dev/nbd0 disko.nix
