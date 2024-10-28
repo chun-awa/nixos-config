@@ -12,6 +12,7 @@ jobs:
     - uses: cachix/install-nix-action@v30
     - name: Install nixos-install-tools
       run: |
+        export NIX_PATH=/nix/var/nix/profiles/per-user/root/channels
         nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
         nix-channel --update
         nix-env -f '<nixpkgs>' -iA nixos-install-tools
@@ -23,9 +24,9 @@ jobs:
         sudo qemu-nbd -c /dev/nbd0 disk.qcow2
     - name: Run disko
       run: |
+        export NIX_PATH=/nix/var/nix/profiles/per-user/$(whoami)/channels
         sed -i 's|/dev/nbd0|/dev/nvme0n1|g' disko.nix
         nix-channel --add https://github.com/nix-community/disko/archive/master.tar.gz disko
         nix-channel --update
         nix-env -f '<nixpkgs>' -iA disko
-        export NIX_PATH=/nix/var/nix/profiles/per-user/root/channels
         sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which disko` --mode disko disko.nix
