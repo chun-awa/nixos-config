@@ -25,3 +25,6 @@ jobs:
       run: |
         sed -i 's|/dev/nvme0n1|/dev/nbd0|g' disko.nix
         sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
+    - name: Install NixOS
+      run: |
+        sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which nixos-install` -v --flake .#nixos
