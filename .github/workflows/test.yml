@@ -28,3 +28,11 @@ jobs:
     - name: Install NixOS
       run: |
         sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which nixos-install` -v --flake .#nixos
+    - name: Clean up
+      run: |
+        du -h disk.qcow2
+        sudo swapoff -a
+        sudo umount -r /mnt
+        sudo qemu-nbd -d /dev/nbd0
+        du -h disk.qcow2
+        
