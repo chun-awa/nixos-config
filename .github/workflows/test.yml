@@ -28,6 +28,7 @@ jobs:
     - name: Install NixOS
       run: |
         . /etc/profile.d/nix.sh
+        export PATH="$PATH:/usr/sbin:/sbin"
         sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which nixos-install` -v --flake .#nixos
     - name: Clean up
       run: |
