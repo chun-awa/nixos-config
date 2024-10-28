@@ -22,4 +22,6 @@ jobs:
         sudo qemu-img create -f qcow2 disk.qcow2 30g
         sudo qemu-nbd -c /dev/nbd0 disk.qcow2
     - name: Run disko
-      run: sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko --arg disko.devices.disk.main.device /dev/nbd0 disko.nix
+      run: |
+        sed -i 's|/dev/nvme0n1|/dev/nbd0|g' disko.nix
+        sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
