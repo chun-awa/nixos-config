@@ -13,6 +13,8 @@ jobs:
       run: |
         curl -L https://nixos.org/nix/install | sh
         . $HOME/.nix-profile/etc/profile.d/nix.sh
+        sudo groupadd -g 30000 nixbld
+        sudo useradd -u 30000 -g nixbld -G nixbld nixbld
         nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
         nix-channel --update
         nix-env -f '<nixpkgs>' -iA nixos-install-tools
