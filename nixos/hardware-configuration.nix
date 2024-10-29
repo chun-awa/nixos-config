@@ -27,6 +27,15 @@
       "compress=zstd"
     ];
   };
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = [
+      "subvol=/swap"
+      "noatime"
+    ];
+  };
+  swapDevices = [ { device = "/swap/swapfile"; } ];
   # Set your system kind (needed for flakes)
   nixpkgs.hostPlatform = "x86_64-linux";
 }
