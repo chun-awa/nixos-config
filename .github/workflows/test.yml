@@ -28,8 +28,8 @@ jobs:
     - name: Install NixOS
       run: |
         . /etc/profile.d/nix.sh
-        export PATH="$PATH:/usr/sbin:/sbin"
-        sudo PATH="$PATH" NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels" `which nixos-install` -v --flake .#nixos
+        echo $PATH
+        sudo PATH="$PATH:/usr/sbin:/sbin" NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels" `which nixos-install` -v --flake .#nixos
     - name: Clean up
       run: |
         du -h disk.qcow2
