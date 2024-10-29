@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@v30
     - name: Install nixos-install-tools
       run: |
+        curl -L https://nixos.org/nix/install | sh
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
         nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
         nix-channel --update
         nix-env -f '<nixpkgs>' -iA nixos-install-tools
@@ -23,12 +24,13 @@ jobs:
         sudo qemu-nbd -c /dev/nbd0 disk.qcow2
     - name: Run disko
       run: |
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
         sed -i 's|/dev/nvme0n1|/dev/nbd0|g' disko.nix
         sudo `which nix` -v --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
     - name: Install NixOS
       run: |
-        . /etc/profile.d/nix.sh
-        sudo PATH="$PATH" NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels" `which nixos-install` -v --show-trace --flake .#nixos
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+        sudo PATH="$PATH" NIX_PATH="$NIX_PATH" `which nixos-install` -v --show-trace --flake .#nixos
     - name: Clean up
       run: |
         du -h disk.qcow2
