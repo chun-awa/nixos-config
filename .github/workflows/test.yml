@@ -29,7 +29,7 @@ jobs:
       run: |
         . /etc/profile.d/nix.sh
         echo $PATH
-        sudo PATH="$PATH:/usr/sbin:/sbin" NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels" `which nixos-install` -v --flake .#nixos
+        sudo PATH="$PATH:/usr/sbin:/sbin" NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels" `which nixos-install` -v --show-trace --print-build-logs --flake .#nixos
     - name: Clean up
       run: |
         du -h disk.qcow2
