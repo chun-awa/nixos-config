@@ -98,6 +98,7 @@
   networking.useDHCP = false;
   networking.dhcpcd.enable = false;
   networking.nameservers = [
+    "114.114.114.114"
     "1.1.1.1"
     "1.0.0.1"
     "8.8.8.8"
