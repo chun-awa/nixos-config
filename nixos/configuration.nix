@@ -77,7 +77,14 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  nixpkgs.config.pulseaudio = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -86,10 +93,29 @@
     };
     displayManager.defaultSession = "xfce";
   };
-
+  networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.useDHCP = false;
+  networking.dhcpcd.enable = false;
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "8.8.8.8"
+    "8.8.4.4"
+  ];
   networking.hostName = "nixos";
-
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  hardware.opengl.extraPackages = with pkgs; [
+    amdvlk
+  ]; 
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
   users.users = {
     chun = {
       isNormalUser = true;
@@ -97,8 +123,6 @@
     };
   };
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
   services.openssh = {
     enable = true;
     settings = {
@@ -107,6 +131,5 @@
     };
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 }
