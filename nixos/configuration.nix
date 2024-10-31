@@ -104,7 +104,7 @@
     "8.8.4.4"
   ];
   networking.hostName = "nixos";
-  
+  virtualisation.vmware.host.enable = true;
   hardware.opengl = {
     enable = true;
     driSupport = true;
