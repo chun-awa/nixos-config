@@ -71,7 +71,11 @@
     };
     # Opinionated: disable channels
     channel.enable = false;
-
+    gc = {
+      automatic = lib.mkDefault true;
+      dates = lib.mkDefault "weekly";
+      options = lib.mkDefault "--delete-older-than 7d";
+    };
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
@@ -101,6 +105,9 @@
     };
   };
   swapDevices = [ { device = "/swap/swapfile"; } ];
+
+  time.timeZone = "Asia/Shanghai";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   security.rtkit.enable = true;
   services.pipewire = {
