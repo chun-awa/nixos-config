@@ -82,49 +82,11 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-  fileSystems = let
-    baseConfig = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [
-        "noatime"
-        "compress=zstd"
-      ];
-    };
-  in
-  {
-    "/" = baseConfig // {
-      options = baseConfig.options ++ ["subvol=/root"];
-    };
-    "/home" = baseConfig // {
-      options = baseConfig.options ++ ["subvol=/home"];
-    };
-    "/nix" = baseConfig // {
-      options = baseConfig.options ++ ["subvol=/nix"];
-    };
-    "/swap" = baseConfig // {
-      options = ["noatime" "subvol=/swap"];
-    };
-  };
   swapDevices = [ { device = "/swap/swapfile"; } ];
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-  time.timeZone = "Asia/Shanghai";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "zh_CN.UTF-8";
-    LC_IDENTIFICATION = "zh_CN.UTF-8";
-    LC_MEASUREMENT = "zh_CN.UTF-8";
-    LC_MONETARY = "zh_CN.UTF-8";
-    LC_NAME = "zh_CN.UTF-8";
-    LC_NUMERIC = "zh_CN.UTF-8";
-    LC_PAPER = "zh_CN.UTF-8";
-    LC_TELEPHONE = "zh_CN.UTF-8";
-    LC_TIME = "C.UTF-8";
-  };
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -141,18 +103,6 @@
     };
     displayManager.defaultSession = "xfce";
   };
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
-  networking.useDHCP = false;
-  networking.dhcpcd.enable = false;
-  networking.nameservers = [
-    "114.114.114.114"
-    "1.1.1.1"
-    "1.0.0.1"
-    "8.8.8.8"
-    "8.8.4.4"
-  ];
-  networking.hostName = "nixos";
   virtualisation.vmware.host.enable = true;
   hardware.opengl = {
     enable = true;
