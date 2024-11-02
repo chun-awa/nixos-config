@@ -4,10 +4,10 @@
 }: {
   virtualisation = {
     vmware.host.enable = true;
-    virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
-    };
+    # virtualbox.host = {
+    #   enable = true;
+    #   enableExtensionPack = true;
+    # };
     libvirtd = {
       enable = true;
       qemu = {
