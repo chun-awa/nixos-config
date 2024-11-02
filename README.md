@@ -13,7 +13,7 @@ sudo nix -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
 
 Generate hardware configuration:
 ```
-sudo nixos-generate-config --no-filesystems --root /mnt
+sudo nixos-generate-config --no-filesystems --show-hardware-config --root /mnt > ./nixos/hardware-configuration.nix
 ```
 
 Run nixos-install:
