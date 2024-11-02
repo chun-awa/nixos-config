@@ -103,7 +103,7 @@
       options = baseConfig.options ++ ["subvol=/nix"];
     };
     "/swap" = baseConfig // {
-      options = ["noatime" "subvol=/nix"];
+      options = ["noatime" "subvol=/swap"];
     };
   };
   swapDevices = [ { device = "/swap/swapfile"; } ];
