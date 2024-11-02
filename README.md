@@ -11,6 +11,11 @@ cd nixos-config
 sudo nix -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko disko.nix
 ```
 
+Generate hardware configuration:
+```
+sudo nixos-generate-config --no-filesystems --root /mnt
+```
+
 Run nixos-install:
 ```
 sudo nixos-install -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --flake .#nixos
