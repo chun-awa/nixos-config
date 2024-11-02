@@ -170,6 +170,7 @@
       extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     };
   };
+  services.printing.enable = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
   services.openssh = {
     enable = true;
