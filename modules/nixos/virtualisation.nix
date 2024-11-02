@@ -1,4 +1,7 @@
 {
+  pkgs,
+  ...
+}: {
   virtualisation = {
     vmware.host.enable = true;
     virtualbox.host = {
