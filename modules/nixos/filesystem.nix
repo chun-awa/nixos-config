@@ -23,4 +23,5 @@
       options = ["noatime" "subvol=/swap"];
     };
   };
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 }
