@@ -81,7 +81,6 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-  swapDevices = [ { device = "/swap/swapfile"; } ];
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
