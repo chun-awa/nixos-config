@@ -28,6 +28,7 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
+      useOSProber = true;
     };
     efi = {
       canTouchEfiVariables = true;
@@ -166,14 +167,17 @@
       extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     };
   };
-
+  networking.firewall.allowedTCPPorts = [ 22 ];
   services.openssh = {
     enable = true;
     settings = {
-      # Opinionated: forbid root login through SSH.
       PermitRootLogin = "no";
     };
   };
-
+  environment.systemPackages = with pkgs; [
+    git
+    curl
+    fastfetch
+  ];
   system.stateVersion = "24.05";
 }
