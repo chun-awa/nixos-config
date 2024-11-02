@@ -1,5 +1,6 @@
 {
   imports = [
+    ./core
     ./audio.nix
     ./zram.nix
     ./virtualisation.nix
