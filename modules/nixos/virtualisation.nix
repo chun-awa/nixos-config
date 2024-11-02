@@ -18,6 +18,7 @@
     docker = {
       enable = true;
       enableOnBoot = true;
+      storageDriver = "btrfs";
     };
   };
   environment.systemPackages = with pkgs; [
