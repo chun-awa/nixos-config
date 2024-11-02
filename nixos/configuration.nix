@@ -80,7 +80,7 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-  let
+  fileSystems = let
     baseConfig = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
@@ -91,16 +91,16 @@
     };
   in
   {
-    fileSystems."/" = baseConfig // {
+    "/" = baseConfig // {
       options = baseConfig.options ++ ["subvol=/root"];
     };
-    fileSystems."/home" = baseConfig // {
+    "/home" = baseConfig // {
       options = baseConfig.options ++ ["subvol=/home"];
     };
-    fileSystems."/nix" = baseConfig // {
+    "/nix" = baseConfig // {
       options = baseConfig.options ++ ["subvol=/nix"];
     };
-    fileSystems."/swap" = baseConfig // {
+    "/swap" = baseConfig // {
       options = ["noatime" "subvol=/nix"];
     };
   };
