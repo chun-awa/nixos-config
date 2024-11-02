@@ -59,40 +59,6 @@
       allowUnfree = true;
     };
   };
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
-    };
-    # Opinionated: disable channels
-    channel.enable = false;
-    gc = {
-      automatic = lib.mkDefault true;
-      dates = lib.mkDefault "weekly";
-      options = lib.mkDefault "--delete-older-than 7d";
-    };
-    # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -101,30 +67,15 @@
     };
   };
   services.displayManager.defaultSession = "xfce";
-  virtualisation.vmware.host.enable = true;
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
   };
-  hardware.opengl.extraPackages = with pkgs; [
-    amdvlk
-  ]; 
-  hardware.opengl.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
   users.users = {
     chun = {
       isNormalUser = true;
       extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
-    };
-  };
-  services.printing.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
     };
   };
   environment.systemPackages = with pkgs; [
