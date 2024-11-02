@@ -1,4 +1,8 @@
 # nixos-config
+Apply config:
+```
+sudo nixos-rebuild switch --flake .#nixos
+```
 ## Installation from NixOS LiveCD
 Clone the repository:
 ```
