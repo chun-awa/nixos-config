@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  config,
   ...
 }: {
   nix = let
