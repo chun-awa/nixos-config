@@ -1,0 +1,17 @@
+name: "Update flake.lock"
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/update-flake-lock@v24
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-msg: "Update flake.lock"
+          branch: update-flake-lock
+          pr-title: "Update `flake.lock`"
