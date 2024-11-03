@@ -7,8 +7,8 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@v24
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/update-flake-lock@v24
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-msg: "Update flake.lock"
