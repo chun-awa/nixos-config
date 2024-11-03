@@ -42,8 +42,9 @@
     ];
     config.allowUnfree = true;
   };
+  programs.zsh.enable = true;
   users = {
-  defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.zsh;
     users = {
       chun = {
         isNormalUser = true;
@@ -54,7 +55,6 @@
   environment.systemPackages = lib.concatLists [
     (with pkgs; [
       git
-      zsh
       curl
       fastfetch
     ])
