@@ -51,11 +51,13 @@
       };
     };
   };
-  environment.systemPackages = [
-    pkgs.git
-    pkgs.zsh
-    pkgs.curl
-    pkgs.fastfetch
+  environment.systemPackages = lib.concatLists [
+    (with pkgs; [
+      git
+      zsh
+      curl
+      fastfetch
+    ])
     inputs.home-manager.packages.${pkgs.system}.default
   ];
   system.stateVersion = "24.05";
