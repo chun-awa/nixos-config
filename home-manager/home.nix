@@ -49,7 +49,23 @@
     username = "chun";
     homeDirectory = "/home/chun";
   };
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
+    shellAliases = {
+      c = "clear";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "ys";
+    };
+  };
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
