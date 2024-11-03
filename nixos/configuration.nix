@@ -42,11 +42,14 @@
     ];
     config.allowUnfree = true;
   };
-  users.users = {
-    chun = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
-    };
+  users = {
+  defaultUserShell = pkgs.zsh;
+    users = {
+      chun = {
+        isNormalUser = true;
+        extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
+      };
+     }
   };
   environment.systemPackages = [
     pkgs.git
