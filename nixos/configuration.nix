@@ -49,7 +49,7 @@
         isNormalUser = true;
         extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
       };
-     }
+    };
   };
   environment.systemPackages = [
     pkgs.git
