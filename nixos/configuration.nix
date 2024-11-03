@@ -53,6 +53,7 @@
   };
   environment.systemPackages = [
     pkgs.git
+    pkgs.zsh
     pkgs.curl
     pkgs.fastfetch
     inputs.home-manager.packages.${pkgs.system}.default
