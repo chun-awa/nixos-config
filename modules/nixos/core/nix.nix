@@ -17,7 +17,7 @@
         "https://cache.nixos.org"
       ];
       # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;l
+      nix-path = config.nix.nixPath;
     };
     channel.enable = false;
     gc = {
