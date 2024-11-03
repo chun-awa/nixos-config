@@ -11,8 +11,13 @@
       experimental-features = "nix-command flakes";
       flake-registry = "";
       auto-optimise-store = true;
+      substituters = [
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
+      ];
       # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
+      nix-path = config.nix.nixPath;l
     };
     channel.enable = false;
     gc = {
