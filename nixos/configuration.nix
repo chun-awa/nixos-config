@@ -48,10 +48,11 @@
       extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     };
   };
-  environment.systemPackages = with pkgs; [
-    git
-    curl
-    fastfetch
+  environment.systemPackages = [
+    pkgs.git
+    pkgs.curl
+    pkgs.fastfetch
+    inputs.home-manager.packages.${pkgs.system}.default
   ];
   system.stateVersion = "24.05";
 }
