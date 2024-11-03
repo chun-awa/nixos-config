@@ -52,13 +52,13 @@
       };
     };
   };
-  environment.systemPackages = lib.concatLists [
+  environment.systemPackages = lib.concatLists {
     (with pkgs; [
       git
       curl
       fastfetch
     ])
     inputs.home-manager.packages.${pkgs.system}.default
-  ];
+  };
   system.stateVersion = "24.05";
 }
