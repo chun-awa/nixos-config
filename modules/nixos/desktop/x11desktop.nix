@@ -7,7 +7,6 @@
         xfce.enable = true;
       };
     };
-    displayManager.defaultSession = "xfce";
   };
   hardware.opengl = {
     enable = true;
