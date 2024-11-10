@@ -3,6 +3,11 @@ Apply config:
 ```
 sudo nixos-rebuild switch --flake .#nixos
 ```
+Apply home-manager config:
+```
+nix shell nixpkgs#home-manager
+home-manager switch --flake .#chun@nixos
+```
 ## Installation from NixOS LiveCD
 Clone the repository:
 ```
