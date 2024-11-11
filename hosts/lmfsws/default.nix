@@ -56,7 +56,6 @@
     git
     curl
     fastfetch
-    terminus_font
   ] ++ [ inputs.home-manager.packages.${pkgs.system}.default ];
   system.stateVersion = "24.05";
 }
