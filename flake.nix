@@ -48,7 +48,7 @@
     nixosConfigurations = {
       lmfsws = let
         username = "chun";
-        specialArgs = {inherit username;};
+        specialArgs = {inherit username inputs outputs;};
       in
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
