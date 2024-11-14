@@ -14,12 +14,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     home-manager,
     ...
-  }: let
+  } @ inputs: let
     inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
