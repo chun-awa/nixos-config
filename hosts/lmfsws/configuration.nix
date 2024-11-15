@@ -22,7 +22,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
-    ../. + users/chun
+    users/chun
   ];
   nixpkgs = {
     # You can add overlays here
