@@ -32,8 +32,6 @@
       inherit
         inputs
         outputs
-        configVars
-        configLib
         nixpkgs
         ;
     };
