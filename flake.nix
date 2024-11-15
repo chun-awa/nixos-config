@@ -49,7 +49,6 @@
       lmfsws = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          home-manager.nixosModules.home-manager
           ./hosts/lmfsws/configuration.nix
         ];
       };
