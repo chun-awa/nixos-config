@@ -12,6 +12,5 @@
       "8.8.4.4"
     ];
     firewall.allowedTCPPorts = [ 22 ];
-    hostName = "nixos";
   };
 }
