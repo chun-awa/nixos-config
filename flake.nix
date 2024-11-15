@@ -28,6 +28,15 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
+    specialArgs = {
+      inherit
+        inputs
+        outputs
+        configVars
+        configLib
+        nixpkgs
+        ;
+    };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
@@ -47,7 +56,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       lmfsws = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        inherit specialArgs;
         modules = [
           ./hosts/lmfsws/configuration.nix
         ];
