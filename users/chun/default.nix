@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  configLib,
   ...
 }: {
   users.users.chun = {
@@ -12,6 +11,6 @@
   };
 
   home-manager.users.chun = import (
-    configLib.relativeToRoot "home/chun/${config.networking.hostName}.nix"
+    "./${config.networking.hostName}.nix"
   );
 }
