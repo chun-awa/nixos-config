@@ -11,6 +11,6 @@
   };
 
   home-manager.users.chun = import (
-    "./${config.networking.hostName}.nix"
+    "${config.networking.hostName}.nix"
   );
 }
