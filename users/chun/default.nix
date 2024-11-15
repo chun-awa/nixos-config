@@ -10,7 +10,5 @@
     packages = [ pkgs.home-manager ];
   };
 
-  home-manager.users.chun = import (
-    "${config.networking.hostName}.nix"
-  );
+  home-manager.users.chun = import ./${config.networking.hostName}.nix;
 }
