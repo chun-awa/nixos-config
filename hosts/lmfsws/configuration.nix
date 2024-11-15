@@ -21,7 +21,10 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    ../../users/chun
   ];
+  networking.hostName = "lmfsws";
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -43,15 +46,6 @@
     config.allowUnfree = true;
   };
   programs.zsh.enable = true;
-  users = {
-    defaultUserShell = pkgs.zsh;
-    users = {
-      chun = {
-        isNormalUser = true;
-        extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
-      };
-    };
-  };
   environment.systemPackages = with pkgs; [
     git
     curl

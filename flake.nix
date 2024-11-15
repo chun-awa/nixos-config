@@ -28,6 +28,13 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
+    specialArgs = {
+      inherit
+        inputs
+        outputs
+        nixpkgs
+        ;
+    };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
@@ -46,24 +53,12 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+      lmfsws = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
         modules = [
-          # > Our main nixos configuration file <
-          ./nixos/configuration.nix
-        ];
-      };
-    };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "chun@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/chun/home.nix
+          home-manager.nixosModules.home-manager
+          { home-manager.extraSpecialArgs = specialArgs; }
+          ./hosts/lmfsws/configuration.nix
         ];
       };
     };
