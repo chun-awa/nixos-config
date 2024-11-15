@@ -24,6 +24,7 @@
 
     ../../users/chun
   ];
+  networking.hostName = "lmfsws";
   nixpkgs = {
     # You can add overlays here
     overlays = [
