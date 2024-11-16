@@ -1,12 +1,7 @@
 # nixos-config
 Apply config:
 ```
-sudo nixos-rebuild switch --flake .#nixos
-```
-Apply home-manager config:
-```
-nix shell nixpkgs#home-manager
-home-manager switch --flake .#chun@nixos
+sudo nixos-rebuild switch --flake .#lmfsws
 ```
 ## Installation from NixOS LiveCD
 Clone the repository:
@@ -23,7 +18,7 @@ sudo nix -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
 
 Run nixos-install:
 ```
-sudo nixos-install -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --flake .#nixos
+sudo nixos-install -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --flake .#lmfsws
 ```
 
 Generate hardware configuration:
