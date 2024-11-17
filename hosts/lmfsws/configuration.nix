@@ -11,17 +11,15 @@
   # You can import other NixOS modules here
   imports = [
     outputs.nixosModules
-
-    inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-cpu-amd-pstate
-    inputs.hardware.nixosModules.common-gpu-amd
-    inputs.hardware.nixosModules.common-pc-laptop
-    inputs.hardware.nixosModules.common-pc-laptop-acpi_call
-    inputs.hardware.nixosModules.common-pc-laptop-ssd
-
     ./hardware-configuration.nix
-
     ../../users/chun
+  ] ++ with inputs.nixos-hardware.nixosModules; [
+    common-cpu-amd
+    common-cpu-amd-pstate
+    common-gpu-amd
+    common-pc-laptop
+    common-pc-laptop-acpi_call
+    common-pc-laptop-ssd
   ];
   networking.hostName = "lmfsws";
   nixpkgs = {
