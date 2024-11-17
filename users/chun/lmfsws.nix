@@ -10,8 +10,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
+    outputs.homeManagerModules
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -48,22 +47,6 @@
   home = {
     username = "chun";
     homeDirectory = "/home/chun";
-  };
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      c = "clear";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "ys";
-    };
   };
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
