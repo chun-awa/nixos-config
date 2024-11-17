@@ -13,8 +13,11 @@
     outputs.nixosModules
 
     inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-laptop
-    inputs.hardware.nixosModules.common-laptop-ssd
+    inputs.hardware.nixosModules.common-cpu-amd-pstate
+    inputs.hardware.nixosModules.common-gpu-amd
+    inputs.hardware.nixosModules.common-pc-laptop
+    inputs.hardware.nixosModules.common-pc-laptop-acpi_call
+    inputs.hardware.nixosModules.common-pc-laptop-ssd
 
     ./hardware-configuration.nix
 
