@@ -2,7 +2,7 @@
   pkgs,
   ...
 }: let
-  p10k-config = pkgs.fetchgit {
+  p10k-config = pkgs.fetchFromGitHub {
     owner = "chun-awa";
     repo = "dotfiles";
     sparseCheckout = [".p10k.zsh"];
