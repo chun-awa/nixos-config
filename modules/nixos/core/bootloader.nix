@@ -13,4 +13,8 @@
       efiSysMountPoint = "/boot/efi";
     };
   };
+  boot.loader.grub2-theme = {
+    enable = true;
+    theme = "vimix";
+  };
 }

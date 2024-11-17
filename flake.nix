@@ -13,6 +13,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
   outputs = {
@@ -60,6 +62,7 @@
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
           ./hosts/lmfsws/configuration.nix
+          grub2-themes.nixosModules.default
         ];
       };
     };
