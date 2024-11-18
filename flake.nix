@@ -21,6 +21,7 @@
     self,
     nixpkgs,
     home-manager,
+    grub2-themes,
     ...
   } @ inputs: let
     inherit (self) outputs;
