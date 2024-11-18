@@ -3,6 +3,7 @@
     ./nix.nix
     ./filesystem.nix
     ./bootloader.nix
+    ./kernel.nix
     ./networking.nix
     ./ssh.nix
     ./binfmt.nix
