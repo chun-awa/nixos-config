@@ -25,6 +25,8 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    inherit (inputs.nixpkgs) lib;
+    mylib = import ../lib {inherit lib;};
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "x86_64-linux"
@@ -39,7 +41,6 @@
         nixpkgs
         ;
     };
-    mylib = import ../lib {inherit lib;};
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
