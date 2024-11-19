@@ -13,13 +13,9 @@
     common-pc-laptop
     common-pc-laptop-acpi_call
     common-pc-laptop-ssd
-  ]) ++ (with outputs.nixosModules; [
-    core
-    desktop
-    hardware.amdvlk
   ]) ++ [
     ./hardware-configuration.nix
-    ../../users/chun
+    mylib.relativeToRoot users/chun
   ];
   networking.hostName = "lmfsws";
   nixpkgs = {
