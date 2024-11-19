@@ -1,9 +1,9 @@
 {
   pkgs,
-  dotfiles,
+  inputs,
   ...
 }: {
-  home.file.".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
+  home.file.".p10k.zsh".source = "${inputs.dotfiles}/.p10k.zsh";
 
   programs.zsh = {
     enable = true;
