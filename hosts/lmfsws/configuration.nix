@@ -16,7 +16,7 @@
     common-pc-laptop-ssd
   ]) ++ [
     ./hardware-configuration.nix
-    mylib.relativeToRoot users/chun
+    (mylib.relativeToRoot "users/chun")
   ];
   networking.hostName = "lmfsws";
   nixpkgs = {
