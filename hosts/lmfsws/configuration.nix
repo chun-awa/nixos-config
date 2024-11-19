@@ -4,6 +4,7 @@
   lib,
   config,
   pkgs,
+  mylib,
   ...
 }: {
   imports = (with inputs.nixos-hardware.nixosModules; [
