@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -8,8 +6,7 @@
   pkgs,
   ...
 }: {
-  # You can import other NixOS modules here
-  imports = (with inputs.nixos-hardware.nixosModules [
+  imports = (with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
     common-cpu-amd-pstate
     common-gpu-amd
@@ -26,7 +23,6 @@
   ];
   networking.hostName = "lmfsws";
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
