@@ -15,6 +15,7 @@
     common-pc-laptop-acpi_call
     common-pc-laptop-ssd
   ]) ++ [
+    (mylib.relativeToRoot "modules/nixos")
     ./hardware-configuration.nix
     (mylib.relativeToRoot "users/chun")
   ];
