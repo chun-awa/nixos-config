@@ -13,8 +13,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+    dotfiles = {
+      url = "github:chun-awa/dotfiles";
+      flake = false;
+    };
   };
 
   outputs = {
