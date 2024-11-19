@@ -38,6 +38,7 @@
       inherit
         inputs
         outputs
+        mylib
         nixpkgs
         ;
     };
@@ -61,7 +62,6 @@
     nixosConfigurations = {
       lmfsws = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        inherit mylib;
         modules = [
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
