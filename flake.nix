@@ -37,7 +37,6 @@
       inherit
         inputs
         outputs
-        mylib
         nixpkgs
         ;
     };
