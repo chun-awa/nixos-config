@@ -9,17 +9,18 @@
   ...
 }: {
   # You can import other NixOS modules here
-  imports = with inputs.nixos-hardware.nixosModules [
+  imports = (with inputs.nixos-hardware.nixosModules [
     common-cpu-amd
     common-cpu-amd-pstate
     common-gpu-amd
     common-pc-laptop
     common-pc-laptop-acpi_call
     common-pc-laptop-ssd
-  ] ++ with outputs.nixosModules; [
+  ]) ++ (with outputs.nixosModules; [
     core
     desktop
-  ] ++ [
+    hardware.amdvlk
+  ]) ++ [
     ./hardware-configuration.nix
     ../../users/chun
   ];
