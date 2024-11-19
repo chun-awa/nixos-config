@@ -39,6 +39,7 @@
         nixpkgs
         ;
     };
+    mylib = import ../lib {inherit lib;};
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
@@ -59,6 +60,7 @@
     nixosConfigurations = {
       lmfsws = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
+        inherit mylib;
         modules = [
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
