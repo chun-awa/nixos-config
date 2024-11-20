@@ -13,6 +13,7 @@
 
     shellAliases = {
       c = "clear";
+      t = "tmux";
     };
 
     oh-my-zsh = {
