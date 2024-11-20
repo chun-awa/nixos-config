@@ -15,7 +15,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     dotfiles = {
-      url = "github:chun-awa/dotfiles";
+      url = "github:chun-awa/dotfiles?shallow=1";
+      flake = false;
+    };
+    tmux-config = {
+      url = "github:gpakosz/.tmux";
       flake = false;
     };
   };
