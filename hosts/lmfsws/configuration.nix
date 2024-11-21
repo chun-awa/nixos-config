@@ -30,9 +30,10 @@
       "modules/nixos/hardware/amdvlk.nix"
       "modules/nixos/desktop/x11desktop.nix"
       "modules/nixos/desktop/audio.nix"
-      "modules/nixos/desktop/fcitx5.nix"
-      "modules/nixos/desktop/virtualisation.nix"
-      "modules/nixos/desktop/wine.nix"
+      "modules/nixos/applications/fcitx5.nix"
+      "modules/nixos/applications/wine.nix"
+      "modules/nixos/virtualisation/qemu.nix"
+      "modules/nixos/virtualisation/docker.nix"
       "users/chun"
     ])
     ./hardware-configuration.nix
