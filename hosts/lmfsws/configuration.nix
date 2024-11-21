@@ -7,17 +7,35 @@
   mylib,
   ...
 }: {
-  imports = (with inputs.nixos-hardware.nixosModules; [
-    common-cpu-amd
-    common-cpu-amd-pstate
-    common-gpu-amd
-    common-pc-laptop
-    common-pc-laptop-acpi_call
-    common-pc-laptop-ssd
-  ]) ++ [
-    (mylib.relativeToRoot "modules/nixos")
+  imports = lib.flatten [
+    (with inputs.nixos-hardware.nixosModules; [
+      common-cpu-amd
+      common-cpu-amd-pstate
+      common-gpu-amd
+      common-pc-laptop
+      common-pc-laptop-acpi_call
+      common-pc-laptop-ssd
+    ])
+    (map mylib.relativeToRoot [
+      "modules/nixos/core/nix.nix"
+      "modules/nixos/core/filesystem.nix"
+      "modules/nixos/core/bootloader.nix"
+      "modules/nixos/core/kernel.nix"
+      "modules/nixos/core/networking.nix"
+      "modules/nixos/core/ssh.nix"
+      "modules/nixos/core/console.nix"
+      "modules/nixos/core/binfmt.nix"
+      "modules/nixos/core/zram.nix"
+      "modules/nixos/core/i18n.nix"
+      "modules/nixos/hardware/amdvlk.nix"
+      "modules/nixos/desktop/x11desktop.nix"
+      "modules/nixos/desktop/audio.nix"
+      "modules/nixos/desktop/fcitx5.nix"
+      "modules/nixos/desktop/virtualisation.nix"
+      "modules/nixos/desktop/wine.nix"
+      "users/chun"
+    ])
     ./hardware-configuration.nix
-    (mylib.relativeToRoot "users/chun")
   ];
   networking.hostName = "lmfsws";
   nixpkgs = {
