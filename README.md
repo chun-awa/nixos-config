@@ -1,7 +1,7 @@
 # nixos-config
 Apply config:
 ```
-sudo nixos-rebuild switch --flake .#lmfsws
+sudo nixos-rebuild switch --flake .#hostname
 ```
 ## Installation from NixOS LiveCD
 Clone the repository:
@@ -18,10 +18,5 @@ sudo nix -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
 
 Run nixos-install:
 ```
-sudo nixos-install -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --flake .#lmfsws
-```
-
-Generate hardware configuration:
-```
-sudo nixos-generate-config --no-filesystems --root /mnt
+sudo nixos-install -v --option substituters https://mirrors.ustc.edu.cn/nix-channels/store --flake .#hostname
 ```
