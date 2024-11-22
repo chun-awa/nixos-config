@@ -13,6 +13,12 @@
     "/" = baseConfig // {
       options = baseConfig.options ++ ["subvol=/root"];
     };
+    "/boot" = baseConfig // {
+      options = baseConfig.options ++ ["subvol=/boot"];
+    };
+    "/var" = baseConfig // {
+      options = baseConfig.options ++ ["subvol=/var"];
+    };
     "/home" = baseConfig // {
       options = baseConfig.options ++ ["subvol=/home"];
     };

@@ -27,6 +27,14 @@
                     mountpoint = "/";
                     mountOptions = ["subvol=/root" "noatime" "compress=zstd"];
                   };
+                  "/boot" = {
+                    mountpoint = "/boot";
+                    mountOptions = ["subvol=/boot" "noatime" "compress=zstd"];
+                  };
+                  "/var" = {
+                    mountpoint = "/var";
+                    mountOptions = ["subvol=/var" "noatime" "compress=zstd"];
+                  };
                   "/home" = {
                     mountpoint = "/home";
                     mountOptions = ["subvol=/home" "noatime" "compress=zstd"];
