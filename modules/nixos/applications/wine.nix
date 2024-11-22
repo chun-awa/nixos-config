@@ -3,8 +3,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    wineWowPackages.stable
+    wineWowPackages.wayland
+    wineWowPackages.fonts
     winetricks
-    wineWowPackages.waylandFull
   ];
 }
