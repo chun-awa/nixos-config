@@ -78,6 +78,15 @@
           grub2-themes.nixosModules.default
         ];
       };
+      qemu-testvm = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          home-manager.nixosModules.home-manager
+          { home-manager.extraSpecialArgs = specialArgs; }
+          ./hosts/qemu-testvm/configuration.nix
+          grub2-themes.nixosModules.default
+        ];
+      };
     };
   };
 }
