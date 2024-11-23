@@ -2,6 +2,10 @@ name: "Update flake.lock"
 on:
   schedule:
     - cron: '0 20 * * *'
+  push:
+    paths:
+      - '.github/workflows/updateflakelock.yml'
+      - 'flake.nix'
   workflow_dispatch:
 jobs:
   update:
