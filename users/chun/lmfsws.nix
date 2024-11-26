@@ -7,7 +7,7 @@
   mylib,
   ...
 }: {
-  imports = [
+  imports = lib.flatten [
     (map mylib.relativeToRoot [
       "modules/home/core/zsh.nix"
       "modules/home/core/tmux.nix"
