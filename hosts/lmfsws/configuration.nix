@@ -18,6 +18,7 @@
     ])
     (map mylib.relativeToRoot [
       "modules/nixos/core/nix.nix"
+      "modules/nixos/core/nixpkgs.nix"
       "modules/nixos/core/filesystem.nix"
       "modules/nixos/core/bootloader.nix"
       "modules/nixos/core/kernel.nix"
@@ -40,25 +41,6 @@
     ./hardware-configuration.nix
   ];
   networking.hostName = "lmfsws";
-  nixpkgs = {
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    config.allowUnfree = true;
-  };
   environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
   system.stateVersion = "24.11";
 }
