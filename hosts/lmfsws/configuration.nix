@@ -58,11 +58,6 @@
     ];
     config.allowUnfree = true;
   };
-  programs.zsh.enable = true;
-  environment.systemPackages = with pkgs; [
-    git
-    curl
-    fastfetch
-  ] ++ [ inputs.home-manager.packages.${pkgs.system}.default ];
+  environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
   system.stateVersion = "24.11";
 }

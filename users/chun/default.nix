@@ -3,6 +3,7 @@
   config,
   ...
 }: {
+  programs.zsh.enable = true;
   users.users.chun = {
     isNormalUser = true;
     password = "chun";
@@ -10,6 +11,5 @@
     extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     packages = [ pkgs.home-manager ];
   };
-
   home-manager.users.chun = import ./${config.networking.hostName}.nix;
 }
