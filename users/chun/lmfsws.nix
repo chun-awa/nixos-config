@@ -1,22 +1,17 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
   outputs,
   lib,
   config,
   pkgs,
+  mylib,
   ...
 }: {
-  # You can import other home-manager modules here
   imports = [
-    outputs.homeManagerModules
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    (map mylib.relativeToRoot [
+      "modules/home/core/zsh.nix"
+      "modules/home/core/tmux.nix"
+    ])
   ];
 
   nixpkgs = {
