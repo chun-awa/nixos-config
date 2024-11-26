@@ -28,6 +28,7 @@
       "modules/nixos/core/zram.nix"
       "modules/nixos/core/i18n.nix"
       "modules/nixos/hardware/amdvlk.nix"
+      "modules/nixos/desktop/fonts.nix"
       "modules/nixos/desktop/x11desktop.nix"
       "modules/nixos/desktop/audio.nix"
       "modules/nixos/applications/fcitx5.nix"
