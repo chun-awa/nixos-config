@@ -7,12 +7,11 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      inter
+      noto-fonts
+      noto-fonts-emoji
       source-han-sans
       source-han-serif
       unifont
-      noto-fonts-emoji
-      font-awesome
       (nerdfonts.override {
         fonts = [
           "NerdFontsSymbolsOnly"
@@ -23,8 +22,8 @@
     ];
 
     fontconfig.defaultFonts = {
-      serif = ["Source Han Serif SC" "Noto Color Emoji"];
-      sansSerif = ["Inter" "Source Han Sans SC" "Noto Color Emoji"];
+      serif = ["Noto Serif" "Source Han Serif SC" "Noto Color Emoji"];
+      sansSerif = ["Noto Sans" "Source Han Sans SC" "Noto Color Emoji"];
       monospace = ["JetBrainsMono Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
