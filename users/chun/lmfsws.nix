@@ -11,6 +11,7 @@
     (map mylib.relativeToRoot [
       "modules/home/core/zsh.nix"
       "modules/home/core/tmux.nix"
+      "modules/home/applications/fcitx5.nix"
     ])
   ];
 
