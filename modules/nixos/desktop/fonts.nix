@@ -25,7 +25,7 @@
     fontconfig.defaultFonts = {
       serif = ["Source Han Serif SC" "Noto Color Emoji"];
       sansSerif = ["Inter" "Source Han Sans SC" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+      monospace = ["JetBrainsMono Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
   };
