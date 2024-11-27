@@ -7,6 +7,7 @@
     git
     neofetch
     fastfetch
+    just
     htop
   ];
 }
