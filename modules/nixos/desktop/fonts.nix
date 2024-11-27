@@ -12,6 +12,7 @@
       source-han-sans
       source-han-serif
       unifont
+      terminus_font
       (nerdfonts.override {
         fonts = [
           "NerdFontsSymbolsOnly"
