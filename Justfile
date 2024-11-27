@@ -1,4 +1,4 @@
-current_host := env_var('HOST')
+current_host := `hostnamectl hostname`
 
 switch hostname=current_host:
   sudo nixos-rebuild switch -v --show-trace --flake .#{{hostname}}
