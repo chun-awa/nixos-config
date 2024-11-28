@@ -31,7 +31,7 @@
     nixpkgs,
     home-manager,
     grub2-themes,
-    nix-flatpak
+    nix-flatpak,
     ...
   } @ inputs: let
     inherit (self) outputs;
