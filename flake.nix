@@ -14,6 +14,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.0";
+
     dotfiles = {
       url = "github:chun-awa/dotfiles?shallow=1";
       flake = false;
@@ -66,8 +68,9 @@
         modules = [
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
-          ./hosts/lmfsws/configuration.nix
+          nix-flatpak.nixosModules.nix-flatpak
           grub2-themes.nixosModules.default
+          ./hosts/lmfsws/configuration.nix
         ];
       };
       test-qemuvm = nixpkgs.lib.nixosSystem {
@@ -75,8 +78,9 @@
         modules = [
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
-          ./hosts/test-qemuvm/configuration.nix
+          nix-flatpak.nixosModules.nix-flatpak
           grub2-themes.nixosModules.default
+          ./hosts/test-qemuvm/configuration.nix
         ];
       };
     };
