@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "nix-flatpak": {
+      "locked": {
+        "lastModified": 1732285094,
+        "narHash": "sha256-OD9tu/QN71OnEWtgvm9pXuQs+SGQtKnLHOGVRG5f9CU=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "d3a763532be5d223bb3474642f089667a8091cdf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "v0.5.0",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1732483221,
@@ -73,11 +89,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1732738963,
-        "narHash": "sha256-lEpb9Q2ghF0NSXkSXKS6qQKTJqfcpWrtsZEGCQULK5E=",
+        "lastModified": 1732800026,
+        "narHash": "sha256-LyaXgFsw9/atDDFVJJOJScFD5LRHEy1VAf3QYDOC/Do=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f7882744e7285929889471e8515b9189e619809c",
+        "rev": "7fa0fa45a8843743ceeec96b6c9230ccda13626b",
         "type": "github"
       },
       "original": {
@@ -124,6 +140,7 @@
         "dotfiles": "dotfiles",
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
+        "nix-flatpak": "nix-flatpak",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
