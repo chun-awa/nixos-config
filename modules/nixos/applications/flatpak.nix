@@ -5,7 +5,7 @@
       {
         name = "flathub";
         location = "https://mirror.sjtu.edu.cn/flathub";
-        gpg-import = fetchurl "https://mirror.sjtu.edu.cn/flathub/flathub.gpg";
+        gpg-import = builtins.fetchurl "https://mirror.sjtu.edu.cn/flathub/flathub.gpg";
       }
     ];
     update.auto = {
