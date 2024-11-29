@@ -13,7 +13,7 @@ in {
       {
         name = "flathub";
         location = "https://mirror.sjtu.edu.cn/flathub";
-        gpg-import = "${flathub-gpg}"
+        gpg-import = "${flathub-gpg}";
       }
     ];
     update.auto = {
