@@ -1,17 +1,19 @@
 {
   pkgs,
   ...
-}: {
+}: let 
+  flathub-gpg = pkgs.fetchurl {
+    url = "https://mirror.sjtu.edu.cn/flathub/flathub.gpg";
+    hash = "sha256-i9wgq8ThnAeWRgvrW/4OeqQThxaZnhnG8tvdeMxBrqo=";
+  };
+in {
   services.flatpak = {
     enable = true;
     remotes = [
       {
         name = "flathub";
         location = "https://mirror.sjtu.edu.cn/flathub";
-        gpg-import = pkgs.fetchurl {
-          url = "https://mirror.sjtu.edu.cn/flathub/flathub.gpg";
-          sha256 = "sha256-i9wgq8ThnAeWRgvrW/4OeqQThxaZnhnG8tvdeMxBrqo=";
-        };
+        gpg-import = "${flathub-gpg}"
       }
     ];
     update.auto = {
