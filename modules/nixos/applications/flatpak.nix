@@ -4,6 +4,12 @@
 }: {
   services.flatpak = {
     enable = true;
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo";
+      }
+    ];
     update.auto = {
       enable = true;
       onCalendar = "daily";
