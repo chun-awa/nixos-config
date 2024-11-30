@@ -1,10 +1,11 @@
 {
   pkgs,
+  lib,
   ...
 }: {
   services.flatpak = {
     enable = true;
-    remotes = [
+    remotes = lib.mkDefault [
       {
         name = "flathub";
         location = "https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo";
