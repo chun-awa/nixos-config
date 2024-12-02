@@ -33,7 +33,7 @@
       font = {
         size = 12;
         normal = {
-          family = "Terminus";
+          family = "FiraCode Nerd Font Mono";
           style = "Regular";
         };
       };

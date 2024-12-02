@@ -19,6 +19,7 @@
       "modules/nixos/core/kernel.nix"
       "modules/nixos/core/networking.nix"
       "modules/nixos/core/ssh.nix"
+      "modules/nixos/core/zram.nix"
       "modules/nixos/core/time.nix"
       "modules/nixos/core/ntp.nix"
       "modules/nixos/core/console.nix"
