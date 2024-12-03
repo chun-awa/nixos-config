@@ -12,8 +12,7 @@
       flake-registry = "";
       auto-optimise-store = true;
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
-        "https://cache.nixos.org"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       ];
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
