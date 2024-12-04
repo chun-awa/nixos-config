@@ -14,7 +14,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.1";
 
     dotfiles = {
       url = "github:chun-awa/dotfiles?shallow=1";
