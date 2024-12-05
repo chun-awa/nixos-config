@@ -61,29 +61,23 @@
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
 
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      lmfsws = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = let
+      nixosSystem = { hostname }: nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
-          home-manager.nixosModules.home-manager
-          { home-manager.extraSpecialArgs = specialArgs; }
+          home-manager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+
           nix-flatpak.nixosModules.nix-flatpak
           grub2-themes.nixosModules.default
-          ./hosts/lmfsws/configuration.nix
+
+          ./hosts/${hostname}/configuration.nix
         ];
       };
-      test-qemuvm = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          { home-manager.extraSpecialArgs = specialArgs; }
-          nix-flatpak.nixosModules.nix-flatpak
-          grub2-themes.nixosModules.default
-          ./hosts/test-qemuvm/configuration.nix
-        ];
-      };
+    in {
+      lmfsws = nixosSystem { hostname = "lmfsws"; };
+      test-qemuvm = nixosSystem { hostname = "test-qemuvm"; };
     };
   };
 }
