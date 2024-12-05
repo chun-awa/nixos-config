@@ -4,5 +4,6 @@
     settings = {
       PermitRootLogin = "no";
     };
+    openFirewall = true;
   };
 }
