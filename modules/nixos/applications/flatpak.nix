@@ -18,7 +18,6 @@
     packages = [
       "com.github.tchx84.Flatseal"
       "com.usebottles.bottles"
-      "com.github.Matoking.protontricks"
     ];
     overrides = {
       global = {
