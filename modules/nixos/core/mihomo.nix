@@ -8,7 +8,7 @@ in {
   services.mihomo = {
     enable = true;
     webui = pkgs.metacubexd;
-    lib.mkMerge [
+    configFile = lib.mkMerge [
       lib.mkIf (builtins.pathExists configPath) {
         configFile = configPath;
       }
