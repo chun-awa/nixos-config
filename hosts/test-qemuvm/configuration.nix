@@ -25,6 +25,7 @@
       "modules/nixos/core/console.nix"
       "modules/nixos/core/binfmt.nix"
       "modules/nixos/core/i18n.nix"
+      "modules/nixos/core/mihomo.nix"
       "modules/nixos/desktop/fonts.nix"
       "modules/nixos/desktop/plasma6.nix"
       "modules/nixos/desktop/audio.nix"
