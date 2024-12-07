@@ -8,6 +8,6 @@ in {
   services.mihomo = {
     enable = true;
     webui = pkgs.metacubexd;
-    lib.mkIf (builtins.pathExists configPath) { configFile = configPath; }
+    configFile = lib.mkIf (builtins.pathExists configPath) configPath;
   };
 }
