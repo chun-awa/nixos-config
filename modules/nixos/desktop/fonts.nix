@@ -1,9 +1,10 @@
 {
   pkgs,
+  lib,
   ...
 }: {
   fonts = {
-    enableDefaultPackages = false;
+    enableDefaultPackages = lib.mkForce false;
     fontDir.enable = true;
 
     packages = with pkgs; [
