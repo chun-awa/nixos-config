@@ -9,12 +9,22 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.1";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     dotfiles = {
       url = "github:chun-awa/dotfiles?shallow=1";
@@ -67,6 +77,7 @@
         modules = [
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = specialArgs;
+            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
           }
 
           nix-flatpak.nixosModules.nix-flatpak
