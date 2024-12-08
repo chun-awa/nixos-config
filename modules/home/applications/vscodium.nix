@@ -10,7 +10,6 @@
       ms-python.python
       ms-python.vscode-pylance
       ms-python.black-formatter
-      Vue.volar
       foxundermoon.shell-format
       timonwong.shellcheck
       tamasfe.even-better-toml
