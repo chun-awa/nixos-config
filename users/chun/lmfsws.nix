@@ -16,7 +16,6 @@
       "modules/home/applications/fcitx5.nix"
       "modules/home/applications/brave.nix"
       "modules/home/applications/vscodium.nix"
-      "modules/home/applications/steam.nix"
     ])
   ];
 

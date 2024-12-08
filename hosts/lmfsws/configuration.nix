@@ -41,6 +41,7 @@
       "modules/nixos/applications/pkgs.nix"
       "modules/nixos/applications/flatpak.nix"
       "modules/nixos/applications/wine.nix"
+      "modules/nixos/applications/steam.nix"
       "modules/nixos/virtualisation/qemu.nix"
       "modules/nixos/virtualisation/docker.nix"
       "users/chun"

@@ -33,6 +33,7 @@
       "modules/nixos/desktop/audio.nix"
       "modules/nixos/applications/pkgs.nix"
       "modules/nixos/applications/flatpak.nix"
+      "modules/nixos/applications/steam.nix"
       "users/chun"
     ])
     ./hardware-configuration.nix
