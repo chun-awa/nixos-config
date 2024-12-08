@@ -19,5 +19,30 @@
       WakaTime.vscode-wakatime
       LeonardSSH.vscord
     ];
+    userSettings = {
+      "update.mode" = "none";
+      "extensions.autoUpdate" = false;
+      "window.titleBarStyle" = "custom";
+      "telemetry.telemetryLevel" = "off";
+
+      "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
+      "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
+      "editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
+      "editor.fontSize" = 14;
+      "editor.fontLigatures" = true;
+
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+      "nix.serverSettings" = {
+        "nil" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+          };
+        };
+      };
+    }
   };
+  home.packages = with pkgs; [
+    nil
+  ]
 }
