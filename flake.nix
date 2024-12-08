@@ -42,6 +42,7 @@
     home-manager,
     grub2-themes,
     nix-flatpak,
+    plasma-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
