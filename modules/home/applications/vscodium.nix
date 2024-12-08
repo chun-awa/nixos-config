@@ -44,5 +44,5 @@
   };
   home.packages = with pkgs; [
     nil
-  ]
+  ];
 }
