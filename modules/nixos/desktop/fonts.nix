@@ -23,7 +23,7 @@
       })
     ];
 
-    fontconfig.defaultFonts = {
+    fontconfig.defaultFonts = lib.mkForce {
       serif = ["Noto Serif" "Source Han Serif SC" "Noto Color Emoji"];
       sansSerif = ["Noto Sans" "Source Han Sans SC" "Noto Color Emoji"];
       monospace = ["JetBrainsMono Nerd Font"];
