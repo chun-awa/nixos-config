@@ -14,7 +14,7 @@
       timonwong.shellcheck
       tamasfe.even-better-toml
       davidanson.vscode-markdownlint
-      WakaTime.vscode-wakatime
+      wakatime.vscode-wakatime
       LeonardSSH.vscord
     ];
     userSettings = {
