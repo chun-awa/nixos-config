@@ -14,7 +14,6 @@
       timonwong.shellcheck
       tamasfe.even-better-toml
       davidanson.vscode-markdownlint
-      vivaxy.vscode-conventional-commits
       WakaTime.vscode-wakatime
       LeonardSSH.vscord
     ];
