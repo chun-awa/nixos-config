@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     dotfiles = {
       url = "github:chun-awa/dotfiles?shallow=1";
