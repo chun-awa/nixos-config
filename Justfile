@@ -1,7 +1,7 @@
 current_host := `hostnamectl hostname`
 
 switch hostname=current_host:
-  sudo nixos-rebuild switch -v --show-trace --flake .#{{hostname}}
+  sudo nixos-rebuild switch -v --show-trace --no-write-lock-file --flake .#{{hostname}}
 
 history:
   sudo nix profile history --profile /nix/var/nix/profiles/system
