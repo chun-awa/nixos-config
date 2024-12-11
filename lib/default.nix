@@ -2,6 +2,8 @@
   lib,
   ...
 }: {
+  complement = set: universe:
+    builtins.filter (x: !(builtins.elem x set)) universe
   # source: https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
   # use path relative to the root of the project
   relativeToRoot = lib.path.append ../.;
