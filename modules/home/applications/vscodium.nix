@@ -1,13 +1,12 @@
 {
   pkgs,
-  nixpkgs,
   inputs,
   ...
 }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with inputs.nix-vscode-extensions.extensions.${builtins.currentSystem}; [
+    extensions = with inputs.nix-vscode-extensions.extensions.open-vsx-release.${pkgs.system}; [
       jnoortheen.nix-ide
       ms-python.python
       ms-python.vscode-pylance
