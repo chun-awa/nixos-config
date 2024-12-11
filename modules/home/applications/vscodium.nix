@@ -7,7 +7,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with inputs.nix-vscode-extensions.extensions.${nixpkgs.hostPlatform}; [
+    extensions = with inputs.nix-vscode-extensions.extensions.${builtins.currentSystem}; [
       jnoortheen.nix-ide
       ms-python.python
       ms-python.vscode-pylance
