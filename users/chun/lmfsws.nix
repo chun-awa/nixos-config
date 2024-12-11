@@ -12,6 +12,7 @@
       "modules/home/core/nixpkgs.nix"
       "modules/home/core/zsh.nix"
       "modules/home/core/tmux.nix"
+      "modules/home/desktop/plasma.nix"
       "modules/home/applications/alacritty.nix"
       "modules/home/applications/fcitx5.nix"
       "modules/home/applications/brave.nix"
