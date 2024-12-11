@@ -1,5 +1,8 @@
-{lib, ...}: {
-  # From https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
+{
+  lib,
+  ...
+}: {
+  # source: https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
   # use path relative to the root of the project
   relativeToRoot = lib.path.append ../.;
   scanPaths = path:
