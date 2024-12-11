@@ -9,7 +9,6 @@
     extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.open-vsx; [
       jnoortheen.nix-ide
       ms-python.python
-      ms-python.vscode-pylance
       ms-python.black-formatter
       Vue.volar
       foxundermoon.shell-format
