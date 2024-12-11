@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.open-vsx-release; [
+    extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.open-vsx; [
       jnoortheen.nix-ide
       ms-python.python
       ms-python.vscode-pylance
