@@ -10,14 +10,14 @@
       jnoortheen.nix-ide
       ms-python.python
       ms-python.black-formatter
-      Vue.volar
+      vue.volar
       foxundermoon.shell-format
       timonwong.shellcheck
       tamasfe.even-better-toml
       davidanson.vscode-markdownlint
       vivaxy.vscode-conventional-commits
-      WakaTime.vscode-wakatime
-      LeonardSSH.vscord
+      wakatime.vscode-wakatime
+      leonardssh.vscord
     ];
     userSettings = {
       "update.mode" = "none";
