@@ -6,23 +6,14 @@
   listNixFiles = dir:
     let
       entries = lib.attrNames (builtins.readDir dir);
-      files = builtins.map (f: (dir + "/${f}")) (lib.filter (name:
-        let
-          path = "${dir}/${name}";
-        in
-          if lib.filesystem.pathIsDirectory path then
-            false
-          else
-            lib.strings.hasSuffix ".nix" name
-      ) entries);
       subdirs = lib.filter (name:
-        let
-          path = "${dir}/${name}";
-        in
-          lib.filesystem.pathIsDirectory path
+          (lib.filesystem.pathIsDirectory "${dir}/${name}")
       ) entries;
+      files = builtins.map (f: (dir + "/${f}")) (lib.filter (name:
+          (lib.strings.hasSuffix ".nix" name)
+      ) (complement subdirs entries));
       filesInSubdirs = lib.concatLists (lib.map (name:
-        listNixFiles "${dir}/${name}"
+        listNixFiles (dir + "/${name}")
       ) subdirs);
     in
       files ++ filesInSubdirs;
