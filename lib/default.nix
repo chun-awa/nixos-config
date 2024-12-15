@@ -23,8 +23,6 @@
     let
       entries = scanPaths dir;
       subdirs = lib.filter lib.filesystem.pathIsDirectory entries;
-      files = lib.filter (lib.strings.hasSuffix ".nix") (complement subdirs entries);
-      filesInSubdirs = lib.concatLists (builtins.map listNixFiles subdirs);
     in
-      files ++ filesInSubdirs;
+      (lib.filter (lib.strings.hasSuffix ".nix") (complement subdirs entries)) ++ (lib.concatLists (builtins.map listNixFiles subdirs))
 }
