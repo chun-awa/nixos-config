@@ -9,7 +9,9 @@
   ...
 }: {
   imports = lib.flatten [
-    (mylib.scanPaths mylib.relativeToRoot "modules/home/base")
+    (mylib.listNixFiles mylib.relativeToRoot "modules/home/base")
+    (mylib.excludeModules "modules/home" [
+    ])
   ];
 
   home = {
