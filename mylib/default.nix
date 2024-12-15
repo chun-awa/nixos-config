@@ -26,5 +26,7 @@
       filesInSubdirs = lib.concatLists (builtins.map listNixFiles subdirs);
     in
       files ++ filesInSubdirs;
-  excludeModules = modulesPath: modules: complement modules (listNixFiles modulesPath);
+  excludeModules = modulesPath: modules: complement (
+    (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) modules)
+  ) (listNixFiles (relativeToRoot modulesPath));
 }
