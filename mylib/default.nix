@@ -3,7 +3,6 @@
   ...
 }: rec {
   # source: https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
-  # use path relative to the root of the project
   relativeToRoot = lib.path.append ../.;
   scanPaths = path:
     builtins.map (f: (path + "/${f}")) (builtins.attrNames
@@ -27,4 +26,5 @@
       filesInSubdirs = lib.concatLists (builtins.map listNixFiles subdirs);
     in
       files ++ filesInSubdirs;
+  excludeModules = modulesPath: modules: complement modules (listNixFiles modulesPath)
 }
