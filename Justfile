@@ -18,3 +18,6 @@ disko:
 
 install hostname:
   sudo nixos-install -v --flake .#{{hostname}}
+
+repl:
+  nix repl -f '<nixpkgs>'

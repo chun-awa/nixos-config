@@ -1,0 +1,1 @@
+../../../nixos/core/nixpkgs.nix

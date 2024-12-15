@@ -4,19 +4,13 @@
   lib,
   config,
   pkgs,
+  utils,
   mylib,
   ...
 }: {
   imports = lib.flatten [
-    (map mylib.relativeToRoot [
-      "modules/home/core/nixpkgs.nix"
-      "modules/home/core/zsh.nix"
-      "modules/home/core/tmux.nix"
-      "modules/home/desktop/plasma.nix"
-      "modules/home/applications/alacritty.nix"
-      "modules/home/applications/fcitx5.nix"
-      "modules/home/applications/brave.nix"
-      "modules/home/applications/vscodium.nix"
+    (mylib.listNixFiles (mylib.relativeToRoot "modules/home/base"))
+    (mylib.excludeModules "modules/home/optional" [
     ])
   ];
 
