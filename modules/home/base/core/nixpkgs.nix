@@ -2,5 +2,5 @@
   mylib,
   ...
 }: {
-  imports = [ mylib.relativeToRoot modules/nixos/core/nixpkgs.nix ];
+  imports = [ mylib.relativeToRoot "modules/nixos/core/nixpkgs.nix" ];
 }
