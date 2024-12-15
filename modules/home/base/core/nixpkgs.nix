@@ -1,6 +1,1 @@
-{
-  mylib,
-  ...
-}: {
-  imports = [ mylib.relativeToRoot "modules/nixos/core/nixpkgs.nix" ];
-}
+../../../nixos/core/nixpkgs.nix
