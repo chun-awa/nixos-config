@@ -11,30 +11,14 @@
     (with inputs.nixos-hardware.nixosModules; [
       common-pc-ssd
     ])
-    (map mylib.relativeToRoot [
-      "modules/nixos/core/nix.nix"
-      "modules/nixos/core/nixpkgs.nix"
-      "modules/nixos/core/filesystem.nix"
-      "modules/nixos/core/bootloader.nix"
-      "modules/nixos/core/kernel.nix"
-      "modules/nixos/core/networking"
-      "modules/nixos/core/networking/dns.nix"
-      "modules/nixos/core/networking/mihomo"
-      "modules/nixos/core/networking/proxy.nix"
-      "modules/nixos/core/ssh.nix"
-      "modules/nixos/core/zram.nix"
-      "modules/nixos/core/time.nix"
-      "modules/nixos/core/ntp.nix"
-      "modules/nixos/core/console.nix"
-      "modules/nixos/core/binfmt.nix"
-      "modules/nixos/core/i18n.nix"
-      "modules/nixos/desktop/fonts.nix"
-      "modules/nixos/desktop/plasma6.nix"
-      "modules/nixos/desktop/audio.nix"
-      "modules/nixos/applications/pkgs.nix"
-      "modules/nixos/applications/flatpak.nix"
-      "modules/nixos/applications/steam.nix"
-      "users/chun"
+    (mylib.listNixFiles (mylib.relativeToRoot "modules/nixos/base"))
+    (mylib.excludeModules "modules/nixos/optional" [
+      (mylib.appendPath "virt" [
+        "virtualbox.nix"
+        "vmware.nix"
+        "qemu.nix"
+        "docker.nix"
+      ])
     ])
     ./hardware-configuration.nix
   ];

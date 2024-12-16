@@ -4,16 +4,13 @@
 }: rec {
   # source: https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
   relativeToRoot = lib.path.append ../.;
+  # modified to include default.nix
   scanPaths = path:
     builtins.map (f: (path + "/${f}")) (builtins.attrNames
       (lib.attrsets.filterAttrs
         (
           path: _type:
-            (_type == "directory")
-            || (
-              (path != "default.nix")
-              && (lib.strings.hasSuffix ".nix" path)
-            )
+            (_type == "directory") || (lib.strings.hasSuffix ".nix" path)
         )
         (builtins.readDir path)));
 
@@ -27,6 +24,7 @@
     in
       files ++ filesInSubdirs;
   excludeModules = modulesPath: modules: complement (
-    (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) modules)
+    (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) (lib.flatten modules))
   ) (listNixFiles (relativeToRoot modulesPath));
+  appendPath = path: pathList: builtins.map (f: path + "/${f}") pathList;
 }
