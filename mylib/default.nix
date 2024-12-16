@@ -24,7 +24,7 @@
     in
       files ++ filesInSubdirs;
   excludeModules = modulesPath: modules: complement (
-    (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) modules)
+    (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) (lib.flatten modules))
   ) (listNixFiles (relativeToRoot modulesPath));
   appendPath = path: pathList: builtins.map (f: path + "/${f}") pathList;
 }
