@@ -29,4 +29,5 @@
   excludeModules = modulesPath: modules: complement (
     (builtins.map (f: (relativeToRoot (modulesPath + "/${f}"))) modules)
   ) (listNixFiles (relativeToRoot modulesPath));
+  appendPath = path: pathList: builtins.map (f: path + "/${f}") pathList;
 }
