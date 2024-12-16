@@ -83,7 +83,7 @@
         modules = [
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = specialArgs;
-            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager nix-flatpak.homeManagerModules.nix-flatpak ];
           }
 
           nix-flatpak.nixosModules.nix-flatpak
