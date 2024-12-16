@@ -9,6 +9,7 @@
     fastfetch
     just
     htop
+    btop
     ncdu
   ];
 }
