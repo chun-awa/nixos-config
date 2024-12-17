@@ -26,6 +26,9 @@
     mylib.appendPath (mylib.relativeToRoot "modules/nixos/hardware") [
       "amdvlk.nix"
     ]
+    mylib.appendPath (mylib.relativeToRoot "users") [
+      "chun"
+    ]
     ./hardware-configuration.nix
   ];
   networking.hostName = "lmfsws";
