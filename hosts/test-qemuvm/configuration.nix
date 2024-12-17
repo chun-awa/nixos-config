@@ -20,9 +20,9 @@
         "docker.nix"
       ])
     ])
-    mylib.appendPath (mylib.relativeToRoot "users") [
+    (mylib.appendPath (mylib.relativeToRoot "users") [
       "chun"
-    ]
+    ])
     ./hardware-configuration.nix
   ];
   networking.hostName = "test-qemuvm";

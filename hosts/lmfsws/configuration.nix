@@ -23,12 +23,12 @@
         "virtualbox.nix"
       ])
     ])
-    mylib.appendPath (mylib.relativeToRoot "modules/nixos/hardware") [
+    (mylib.appendPath (mylib.relativeToRoot "modules/nixos/hardware") [
       "amdvlk.nix"
-    ]
-    mylib.appendPath (mylib.relativeToRoot "users") [
+    ])
+    (mylib.appendPath (mylib.relativeToRoot "users") [
       "chun"
-    ]
+    ])
     ./hardware-configuration.nix
   ];
   networking.hostName = "lmfsws";
