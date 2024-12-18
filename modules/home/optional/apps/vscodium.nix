@@ -36,7 +36,7 @@
       "nix.serverSettings" = {
         "nil" = {
           "formatting" = {
-            "command" = [ "nixfmt" ];
+            "command" = [ "alejandra" ];
           };
         };
       };
@@ -44,5 +44,6 @@
   };
   home.packages = with pkgs; [
     nil
+    alejandra
   ];
 }
