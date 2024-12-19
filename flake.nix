@@ -38,6 +38,10 @@
       url = "github:gpakosz/.tmux";
       flake = false;
     };
+    wallpapers = {
+      url = "gitlab:chun-awa/wallpapers?shallow=1";
+      flake = false;
+    };
   };
 
   outputs = {
