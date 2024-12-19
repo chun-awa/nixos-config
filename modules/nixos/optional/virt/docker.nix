@@ -1,6 +1,6 @@
 {
   virtualisation.docker = {
-   enable = true;
+    enable = true;
     enableOnBoot = true;
     storageDriver = "btrfs";
   };

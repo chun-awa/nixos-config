@@ -11,7 +11,7 @@
   imports = lib.flatten [
     (mylib.listNixFiles (mylib.relativeToRoot "modules/home/base"))
     (mylib.excludeModules "modules/home/optional" [
-    ])
+      ])
   ];
 
   home = {

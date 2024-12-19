@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     zip
     xz
@@ -18,6 +15,6 @@
     gnupg
     cowsay
     lolcat
-    fortune    
+    fortune
   ];
 }

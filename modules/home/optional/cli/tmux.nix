@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile "${inputs.tmux-config}/.tmux.conf";

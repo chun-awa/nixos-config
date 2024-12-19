@@ -36,7 +36,7 @@
       "nix.serverSettings" = {
         "nil" = {
           "formatting" = {
-            "command" = [ "alejandra" ];
+            "command" = ["alejandra"];
           };
         };
       };

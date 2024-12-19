@@ -59,7 +59,7 @@
       "x86_64-linux"
     ];
     inherit (nixpkgs) lib;
-    mylib = import ./mylib { inherit lib; };
+    mylib = import ./mylib {inherit lib;};
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -82,23 +82,25 @@
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = let
-      nixosSystem = { hostname }: nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager nix-flatpak.homeManagerModules.nix-flatpak ];
-          }
+      nixosSystem = {hostname}:
+        nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.sharedModules = [plasma-manager.homeManagerModules.plasma-manager nix-flatpak.homeManagerModules.nix-flatpak];
+            }
 
-          nix-flatpak.nixosModules.nix-flatpak
-          grub2-themes.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
+            grub2-themes.nixosModules.default
 
-          ./hosts/${hostname}/configuration.nix
-        ];
-      };
+            ./hosts/${hostname}/configuration.nix
+          ];
+        };
     in {
-      lmfsws = nixosSystem { hostname = "lmfsws"; };
-      test-qemuvm = nixosSystem { hostname = "test-qemuvm"; };
+      lmfsws = nixosSystem {hostname = "lmfsws";};
+      test-qemuvm = nixosSystem {hostname = "test-qemuvm";};
     };
   };
 }

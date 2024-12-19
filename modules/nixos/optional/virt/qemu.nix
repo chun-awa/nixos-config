@@ -1,12 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
       ovmf.enable = true;
-      ovmf.packages = [ pkgs.OVMFFull.fd ];
+      ovmf.packages = [pkgs.OVMFFull.fd];
     };
   };
   environment.systemPackages = with pkgs; [

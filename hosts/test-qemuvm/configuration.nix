@@ -26,6 +26,6 @@
     ./hardware-configuration.nix
   ];
   networking.hostName = "test-qemuvm";
-  environment.systemPackages = with pkgs; [ inputs.home-manager.packages.${pkgs.system}.default ];
+  environment.systemPackages = with pkgs; [inputs.home-manager.packages.${pkgs.system}.default];
   system.stateVersion = "24.11";
 }

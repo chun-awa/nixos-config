@@ -32,6 +32,6 @@
     ./hardware-configuration.nix
   ];
   networking.hostName = "lmfsws";
-  environment.systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+  environment.systemPackages = [inputs.home-manager.packages.${pkgs.system}.default];
   system.stateVersion = "24.11";
 }
