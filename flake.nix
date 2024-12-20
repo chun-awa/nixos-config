@@ -15,6 +15,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    impermanence.url = "github:nix-community/impermanence";
     grub2-themes = {
       url = "github:vinceliuice/grub2-themes";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +52,7 @@
     grub2-themes,
     nix-flatpak,
     plasma-manager,
+    impermanence,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -94,6 +96,7 @@
 
             nix-flatpak.nixosModules.nix-flatpak
             grub2-themes.nixosModules.default
+            impermanence.nixosModules.impermanence
 
             ./hosts/${hostname}/configuration.nix
           ];
