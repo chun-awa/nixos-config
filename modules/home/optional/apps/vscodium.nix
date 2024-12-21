@@ -8,6 +8,7 @@
     package = pkgs.vscodium;
     extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.open-vsx; [
       jnoortheen.nix-ide
+      kamadorueda.alejandra
       ms-python.python
       ms-python.black-formatter
       vue.volar
