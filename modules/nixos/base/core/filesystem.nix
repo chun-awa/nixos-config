@@ -1,44 +1,28 @@
 {
   fileSystems = let
-    baseConfig = {
+    rootFilesystem = {subvol}:
+    {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [
         "noatime"
         "compress=zstd"
+        "subvol=${subvol}"
       ];
     };
   in {
-    "/" =
-      baseConfig
-      // {
-        options = baseConfig.options ++ ["subvol=/root"];
-      };
-    "/boot" =
-      baseConfig
-      // {
-        options = baseConfig.options ++ ["subvol=/boot"];
-      };
-    "/var" =
-      baseConfig
-      // {
-        options = baseConfig.options ++ ["subvol=/var"];
-      };
-    "/home" =
-      baseConfig
-      // {
-        options = baseConfig.options ++ ["subvol=/home"];
-      };
-    "/nix" =
-      baseConfig
-      // {
-        options = baseConfig.options ++ ["subvol=/nix"];
-      };
-    "/swap" =
-      baseConfig
-      // {
-        options = ["noatime" "subvol=/swap"];
-      };
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
+    };
+    "/nix" = rootFilesystem {subvol = "/nix";};
+    "/persistent" = rootFilesystem {subvol = "/persistent";};
+    "/persistent".neededForBoot = true;
+    "/var" = rootFilesystem {subvol = "/var";};
+    "/home" = rootFilesystem {subvol = "/home";};
+    "/swap" = rootFilesystem {subvol = "/swap";};
+    "/boot" = rootFilesystem {subvol = "/boot";};
   };
   swapDevices = [{device = "/swap/swapfile";}];
 }

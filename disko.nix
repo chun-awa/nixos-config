@@ -23,9 +23,9 @@
                 type = "btrfs";
                 extraArgs = ["-L" "nixos" "-f"];
                 subvolumes = {
-                  "/root" = {
+                  "/persistent" = {
                     mountpoint = "/";
-                    mountOptions = ["subvol=/root" "noatime" "compress=zstd"];
+                    mountOptions = ["subvol=/persistent" "noatime" "compress=zstd"];
                   };
                   "/boot" = {
                     mountpoint = "/boot";
