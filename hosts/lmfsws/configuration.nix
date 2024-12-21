@@ -14,7 +14,6 @@
       common-cpu-amd-zenpower
       common-gpu-amd
       common-pc-laptop
-      common-pc-laptop-acpi_call
       common-pc-laptop-ssd
     ])
     (mylib.listNixFiles (mylib.relativeToRoot "modules/nixos/base"))
