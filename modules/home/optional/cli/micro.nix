@@ -4,5 +4,5 @@
     settings = {
       mouse = false;
     };
-  }
+  };
 }
