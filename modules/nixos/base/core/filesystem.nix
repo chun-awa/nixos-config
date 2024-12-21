@@ -17,8 +17,10 @@
       options = [ "defaults" "size=25%" "mode=755" ];
     };
     "/nix" = rootFilesystem {subvol = "/nix";};
-    "/persistent" = rootFilesystem {subvol = "/persistent";};
-    "/persistent".neededForBoot = true;
+    "/persistent" = rootFilesystem {
+      subvol = "/persistent";
+      neededForBoot = true;
+    };
     "/var" = rootFilesystem {subvol = "/var";};
     "/home" = rootFilesystem {subvol = "/home";};
     "/swap" = rootFilesystem {subvol = "/swap";};
