@@ -3,7 +3,6 @@
   config,
   ...
 }: {
-  programs.zsh.enable = true;
   users.users.chun = {
     isNormalUser = true;
     password = "chun";
