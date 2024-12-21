@@ -18,7 +18,6 @@
     };
     "/nix" = rootFilesystem {subvol = "/nix";};
     "/persistent" = rootFilesystem {subvol = "/persistent";};
-    "/persistent".neededForBoot = true;
     "/var" = rootFilesystem {subvol = "/var";};
     "/home" = rootFilesystem {subvol = "/home";};
     "/swap" = rootFilesystem {subvol = "/swap";};

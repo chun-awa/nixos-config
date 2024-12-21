@@ -5,6 +5,7 @@
   imports = [
     impermanence.nixosModules.impermanence
   ];
+  fileSystems."/persistent".neededForBoot = true;
   environment.persistence."/persistent" = {
     enable = true;
     hideMounts = true;
