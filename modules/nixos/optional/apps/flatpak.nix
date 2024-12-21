@@ -24,8 +24,8 @@
         # Force Wayland by default
         Context.sockets = [
           "wayland"
+          "fallback-x11"
           "!x11"
-          "!fallback-x11"
         ];
         Environment = {
           # Fix un-themed cursor in some Wayland apps
