@@ -16,6 +16,5 @@
     cowsay
     lolcat
     fortune
-    micro
   ];
 }
