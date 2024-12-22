@@ -15,6 +15,11 @@
       fsType = "tmpfs";
       options = ["defaults" "size=25%" "mode=755"];
     };
+    "/btrfs_root" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvolid=5"];
+    };
     "/nix" = rootFilesystem {subvol = "/nix";};
     "/persistent" =
       (rootFilesystem {subvol = "/persistent";})
