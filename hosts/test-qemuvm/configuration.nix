@@ -15,9 +15,6 @@
     (mylib.excludeModules "modules/nixos/optional" [
       (mylib.appendPath "virt" [
         "virtualbox.nix"
-        "vmware.nix"
-        "qemu.nix"
-        "docker.nix"
       ])
     ])
     (mylib.appendPath (mylib.relativeToRoot "users") [
