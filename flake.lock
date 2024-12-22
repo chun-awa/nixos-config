@@ -227,8 +227,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
-        "tmux-config": "tmux-config",
-        "wallpapers": "wallpapers"
+        "tmux-config": "tmux-config"
       }
     },
     "systems": {
@@ -260,22 +259,6 @@
         "owner": "gpakosz",
         "repo": ".tmux",
         "type": "github"
-      }
-    },
-    "wallpapers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733140915,
-        "narHash": "sha256-XdRc835eng6HCMNLyBERMHLa3xJvala2gNz5wS6V33c=",
-        "owner": "chun-awa",
-        "repo": "wallpapers",
-        "rev": "96b4fcad81584512c63286701df2562d10be5e3b",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "chun-awa",
-        "repo": "wallpapers",
-        "type": "gitlab"
       }
     }
   },
