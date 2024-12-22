@@ -101,9 +101,9 @@
             ./hosts/${hostname}/configuration.nix
           ];
         };
-    in {
-      lmfsws = nixosSystem {hostname = "lmfsws";};
-      test-qemuvm = nixosSystem {hostname = "test-qemuvm";};
-    };
+    in
+      lib.genAttrs (
+        builtins.attrNames (builtins.readDir (mylib.relativeToRoot "hosts"))
+      ) (hostname: nixosSystem {inherit hostname;});
   };
 }
