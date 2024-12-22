@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   fileSystems = let
     rootFilesystem = {subvol}: {
       device = "/dev/disk/by-label/nixos";
