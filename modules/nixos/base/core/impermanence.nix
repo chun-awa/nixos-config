@@ -1,4 +1,4 @@
-let
+{pkgs,...}: let
   persistentPath = "/persistent";
 in {
   environment.persistence."${persistentPath}" = {
