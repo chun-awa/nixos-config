@@ -5,6 +5,7 @@
 }: {
   users.users.chun = {
     isNormalUser = true;
+    password = "chun";
     shell = pkgs.zsh;
     extraGroups = ["wheel" "video" "audio" "games" "networkmanager"];
     packages = [pkgs.home-manager];
