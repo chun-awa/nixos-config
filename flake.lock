@@ -535,11 +535,11 @@
     "tmux-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1732642968,
-        "narHash": "sha256-e7Ymv3DD7FY2i7ij9woZ6o/edJGbEfm2K8wrD2H43Yk=",
+        "lastModified": 1735057688,
+        "narHash": "sha256-CsVCcJbI5DE6nosYjdHEdZCyOzr5tR7jxB0PZ9cRUx0=",
         "owner": "gpakosz",
         "repo": ".tmux",
-        "rev": "4cb811769abe8a2398c7c68c8e9f00e87bad4035",
+        "rev": "5c87d7b3d2800f9d2963fa9ac7f8a2a0955e3b84",
         "type": "github"
       },
       "original": {
