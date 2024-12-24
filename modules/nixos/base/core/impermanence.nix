@@ -10,7 +10,7 @@ in {
     ];
     files = [
       "/etc/machine-id"
-      "/etc/shadow"
+      # "/etc/shadow"
     ];
   };
   # hacks to prevent failed bind mount on /etc/shadow
