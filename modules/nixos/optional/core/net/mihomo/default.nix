@@ -7,7 +7,7 @@
     enable = true;
     webui = pkgs.metacubexd;
     configFile = let
-      configPath = /root/.config/mihomo/config.yaml;
+      configPath = /persistent/etc/mihomo/config.yaml;
     in
       if (builtins.pathExists configPath)
       then configPath
