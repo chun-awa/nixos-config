@@ -1,4 +1,12 @@
 # nixos-config
-Currently WIP.
+Currently WIP and not for production use.
 
-See [Justfile](Justfile) for installation steps.
+## Installation
+```
+git clone https://github.com/chun-awa/nixos-config
+cd nixos-config
+# optional: automatically partition disk by disko
+just disko
+# see ./hosts
+just install <hostname>
+```
