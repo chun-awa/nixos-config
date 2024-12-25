@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{pkgs, lib, ...}: {
+  home.packages = lib.flatten (with pkgs; [
     zip
     xz
     unzip
@@ -19,5 +19,5 @@
     (with unstable; [
       go-musicfox
     ])
-  ];
+  ]);
 }
