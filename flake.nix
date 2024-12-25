@@ -59,6 +59,7 @@
     nix-flatpak,
     plasma-manager,
     impermanence,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -97,12 +98,17 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = specialArgs;
-              home-manager.sharedModules = [plasma-manager.homeManagerModules.plasma-manager nix-flatpak.homeManagerModules.nix-flatpak];
+              home-manager.sharedModules = [
+                plasma-manager.homeManagerModules.plasma-manager
+                nix-flatpak.homeManagerModules.nix-flatpak
+                nixvim.homeManagerModules.nixvim
+              ];
             }
 
             nix-flatpak.nixosModules.nix-flatpak
             grub2-themes.nixosModules.default
             impermanence.nixosModules.impermanence
+            nixvim.nixosModules.nixvim
 
             ./hosts/${hostname}/configuration.nix
           ];
