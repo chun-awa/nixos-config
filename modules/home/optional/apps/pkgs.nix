@@ -16,5 +16,8 @@
     cowsay
     lolcat
     fortune
+    (with unstable; [
+      go-musicfox
+    ])
   ];
 }
