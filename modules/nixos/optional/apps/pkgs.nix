@@ -8,5 +8,6 @@
     htop
     btop
     ncdu
+    compsize
   ];
 }
