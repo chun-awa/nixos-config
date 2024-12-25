@@ -1,7 +1,4 @@
-{
-  mylib,
-  ...
-}: {
+{mylib, ...}: {
   imports = [
     (mylib.relativeToRoot "modules/nixos/base/core/unfreepkgs.nix")
   ];

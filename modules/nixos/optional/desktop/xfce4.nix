@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.xfce.excludePackages = with pkgs.xfce; [
     mousepad
     parole
