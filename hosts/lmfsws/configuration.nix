@@ -20,8 +20,6 @@
     (mylib.excludeModules "modules/nixos/optional" [
       (mylib.appendPath "virt" [
         "virtualbox.nix"
-        # TODO: implement allowUnfreePredicate package list (https://nixos.org/manual/nixpkgs/stable/#sec-allow-unfree)
-        "vmware.nix"
       ])
     ])
     (mylib.appendPath (mylib.relativeToRoot "modules/nixos/hardware") [
