@@ -20,6 +20,7 @@
     cowsay
     lolcat
     fortune
+    nix-tree
     (with unstable; [
       go-musicfox
     ])
