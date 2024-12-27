@@ -14,20 +14,22 @@
     "steam-original"
     "steam-run"
   ];
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [proton-ge-bin];
-    protontricks.enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
-  };
-  gamescope = {
-    enable = true;
-    capSysNice = true;
-    args = [
-      "--rt"
-      "--expose-wayland"
-    ];
+  programs = {
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [proton-ge-bin];
+      protontricks.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
+    };
   };
 }
