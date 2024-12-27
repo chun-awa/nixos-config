@@ -21,6 +21,8 @@
     lolcat
     fortune
     nix-tree
+    nix-output-monitor
+    nvd
     (with unstable; [
       go-musicfox
     ])
