@@ -6,7 +6,6 @@
     fastfetch
     just
     htop
-    btop
     ncdu
     compsize
   ];
