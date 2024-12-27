@@ -14,7 +14,7 @@
       };
       default_session = {
         command = builtins.concatStringsSep " " [
-          "${tgreet}/bin/tuigreet"
+          "${pkgs.greetd.tuigreet}/bin/tuigreet"
           "--time --time-format '%Y-%m-%d %H:%M:%S'"
           "--asterisks"
           "--window-padding 2"
