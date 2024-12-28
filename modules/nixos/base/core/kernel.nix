@@ -3,6 +3,7 @@
   config,
   ...
 }: {
+  hardware.enableRedistributableFirmware = true;
   boot = {
     kernelPackages = pkgs.linuxPackages;
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
