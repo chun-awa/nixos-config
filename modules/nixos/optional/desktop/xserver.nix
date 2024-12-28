@@ -1,6 +1,8 @@
 {
-  services.xserver = {
-    enable = true;
+  services = {
+    xserver = {
+      enable = true;
+    };
     displayManager.startx.enable = true;
   };
 }
