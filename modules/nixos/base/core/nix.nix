@@ -22,11 +22,6 @@
       nix-path = config.nix.nixPath;
     };
     channel.enable = false;
-    gc = {
-      automatic = lib.mkDefault true;
-      dates = lib.mkDefault "daily";
-      options = lib.mkDefault "--delete-older-than 1d";
-    };
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
