@@ -3,5 +3,6 @@
     wineWowPackages.wayland
     wineWowPackages.fonts
     winetricks
+    bottles
   ];
 }
