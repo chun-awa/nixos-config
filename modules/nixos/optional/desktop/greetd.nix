@@ -8,7 +8,7 @@
     vt = 7;
     settings = {
       initial_session = {
-        command = "startplasma-wayland";
+        command = "startxfce4";
         # TODO: make this not hard-coded
         user = "chun";
       };
