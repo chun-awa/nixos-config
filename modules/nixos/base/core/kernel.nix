@@ -5,7 +5,7 @@
 }: {
   hardware.enableRedistributableFirmware = true;
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_xanmod;
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
     extraModprobeConfig = ''
