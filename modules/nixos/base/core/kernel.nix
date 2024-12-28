@@ -4,7 +4,7 @@
   ...
 }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_stable;
+    kernelPackages = pkgs.linuxPackages;
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
     extraModprobeConfig = ''
