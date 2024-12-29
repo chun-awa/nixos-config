@@ -15,4 +15,5 @@
       xfce.enable = true;
     };
   };
+  xdg.portal.enable = true;
 }
