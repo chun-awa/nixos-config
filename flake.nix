@@ -25,11 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +51,6 @@
     home-manager,
     grub2-themes,
     nix-flatpak,
-    plasma-manager,
     impermanence,
     nixvim,
     ...
@@ -98,7 +92,6 @@
             {
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.sharedModules = [
-                plasma-manager.homeManagerModules.plasma-manager
                 nix-flatpak.homeManagerModules.nix-flatpak
                 nixvim.homeManagerModules.nixvim
               ];
