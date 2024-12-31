@@ -353,11 +353,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735523336,
-        "narHash": "sha256-xM4qkXHvpWrTIGZaW/Cb480r7XCAQq1KJ3fBX0KkwwU=",
+        "lastModified": 1735609563,
+        "narHash": "sha256-u/Z6gFnvDo+mRieCTQGWA/6vHc15/pMZGvgGUAD2Vb0=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "39e0a0b8275a471d580c84bc824a701e06674eb6",
+        "rev": "eb0c27c9d94c4bd66de874c4a72deb620a72d9d2",
         "type": "github"
       },
       "original": {
@@ -517,11 +517,11 @@
     "tmux-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1735057688,
-        "narHash": "sha256-CsVCcJbI5DE6nosYjdHEdZCyOzr5tR7jxB0PZ9cRUx0=",
+        "lastModified": 1735638849,
+        "narHash": "sha256-y4Pejd+pJ0hL10MGEdyx18RkIM3i6EeqiTHvjKDwXgU=",
         "owner": "gpakosz",
         "repo": ".tmux",
-        "rev": "5c87d7b3d2800f9d2963fa9ac7f8a2a0955e3b84",
+        "rev": "34d654f91746f6ddb61bbc8087aeefb2b83b6dfb",
         "type": "github"
       },
       "original": {
