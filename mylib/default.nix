@@ -1,8 +1,8 @@
 {lib, ...}: rec {
-  # source: https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
+  # https://github.com/ryan4yin/nix-config/blob/main/lib/default.nix
   relativeToRoot = lib.path.append ../.;
-  # modified to include default.nix
-  scanPaths = path:
+
+  findNixModules = path:
     builtins.map (f: (path + "/${f}")) (builtins.attrNames
       (lib.attrsets.filterAttrs
         (
@@ -10,10 +10,9 @@
             (_type == "directory") || (lib.strings.hasSuffix ".nix" path)
         )
         (builtins.readDir path)));
-
   complement = set: universe: builtins.filter (x: !(builtins.elem x set)) universe;
   listNixFiles = dir: let
-    entries = scanPaths dir;
+    entries = findNixModules dir;
     subdirs = lib.filter lib.filesystem.pathIsDirectory entries;
     files = lib.filter (lib.strings.hasSuffix ".nix") (complement subdirs entries);
     filesInSubdirs = lib.concatLists (builtins.map listNixFiles subdirs);
