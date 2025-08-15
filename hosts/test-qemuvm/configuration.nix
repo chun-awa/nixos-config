@@ -15,6 +15,10 @@
     (mylib.excludeModules "modules/nixos/optional" [
       (mylib.appendPath "virt" [
         "virtualbox.nix"
+        "vmware.nix"
+      ])
+      (mylib.appendPath "apps" [
+        "flatpak.nix"
       ])
     ])
     (mylib.appendPath (mylib.relativeToRoot "users") [
