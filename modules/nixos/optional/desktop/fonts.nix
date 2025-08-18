@@ -14,13 +14,16 @@
       source-han-serif
       unifont
       terminus_font
-      (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-          "JetBrainsMono"
-          "FiraCode"
-        ];
-      })
+      cozette
+      dejavu_fonts
+      with maple-mono; [
+        NF
+        NF-CN
+      ]
+      with nerd-fonts; [
+        jetbrains-mono
+        fira-code
+      ]
     ];
 
     fontconfig.defaultFonts = lib.mkForce {
