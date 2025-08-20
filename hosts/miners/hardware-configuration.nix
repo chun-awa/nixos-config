@@ -51,5 +51,5 @@
       };
     }
     // lib.genAttrs ["/nix" "/var" "/home" "/swap" "/boot"] (subvol: rootFilesystem {inherit subvol;});
-  swapDevices = [{device = "/swap/swapfile";}];
+  swapDevices = [{device = "/dev/disk/by-label/swap";}];
 }
