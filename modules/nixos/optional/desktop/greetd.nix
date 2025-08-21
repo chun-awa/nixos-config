@@ -7,11 +7,11 @@
     enable = true;
     vt = 7;
     settings = {
-      initial_session = {
-        command = "startxfce4";
-        # TODO: make this not hard-coded
-        user = "chun";
-      };
+      # initial_session = {
+      #   command = "startxfce4";
+      #   # TODO: make this not hard-coded
+      #   user = "chun";
+      # };
       default_session = {
         command = builtins.concatStringsSep " " [
           "${pkgs.greetd.tuigreet}/bin/tuigreet"
