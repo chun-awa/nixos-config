@@ -16,14 +16,14 @@
       terminus_font
       cozette
       dejavu_fonts
-      with maple-mono; [
+      (with maple-mono; [
         NF
         NF-CN
-      ]
-      with nerd-fonts; [
+      ])
+      (with nerd-fonts; [
         jetbrains-mono
         fira-code
-      ]
+      ])
     ];
 
     fontconfig.defaultFonts = lib.mkForce {
