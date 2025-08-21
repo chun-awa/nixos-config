@@ -16,11 +16,13 @@
       terminus_font
       cozette
       dejavu_fonts
-      (with nerd-fonts; [
-        jetbrains-mono
-        fira-code
-      ])
-    ];
+    ] ++ (with maple-mono; [
+      NF
+      NF-CN
+    ]) ++ (with nerd-fonts; [
+      jetbrains-mono
+      fira-code
+    ]);
 
     fontconfig.defaultFonts = lib.mkForce {
       serif = ["Noto Serif" "Source Han Serif SC" "Noto Color Emoji"];
