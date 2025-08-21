@@ -13,7 +13,6 @@
     (mylib.excludeModules "modules/home/optional" [
       (mylib.appendPath "apps" [
         "flatpak.nix"
-        "wine.nix"
       ])])
   ];
 

@@ -24,6 +24,7 @@
       ])
       (mylib.appendPath "apps" [
         "flatpak.nix"
+        "wine.nix"
       ])
     ])
     (mylib.appendPath (mylib.relativeToRoot "users") [
