@@ -50,6 +50,6 @@
         options = ["rw" "prealloc" "discard" "uid=1000" "gid=1000" "force"];
       };
     }
-    // lib.genAttrs ["/nix" "/var" "/home" "/swap" "/boot"] (subvol: rootFilesystem {inherit subvol;});
+    // lib.genAttrs ["/nix" "/var" "/home" "/boot"] (subvol: rootFilesystem {inherit subvol;});
   swapDevices = [{device = "/dev/disk/by-label/swap";}];
 }
