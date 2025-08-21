@@ -1,6 +1,4 @@
 {
-  inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -8,14 +6,6 @@
   ...
 }: {
   imports = lib.flatten [
-    (with inputs.nixos-hardware.nixosModules; [
-      common-cpu-amd
-      common-cpu-amd-pstate
-      common-cpu-amd-zenpower
-      common-gpu-amd
-      common-pc-laptop
-      common-pc-laptop-ssd
-    ])
     (mylib.listNixFiles (mylib.relativeToRoot "modules/nixos/base"))
     (mylib.excludeModules "modules/nixos/optional" [
       (mylib.appendPath "virt" [

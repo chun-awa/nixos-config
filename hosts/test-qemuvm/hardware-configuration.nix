@@ -1,10 +1,17 @@
 {
+  inputs,
   lib,
   config,
   modulesPath,
   ...
 }: {
-  imports = [(modulesPath + "/profiles/qemu-guest.nix")];
+  imports = lib.flatten [
+    (modulesPath + "/profiles/qemu-guest.nix")
+    (with inputs.nixos-hardware.nixosModules; [
+      common-pc-ssd
+    ])
+  ];
+
   boot.initrd.availableKernelModules = ["nvme" "uhci_hcd" "ehci_pci" "ahci" "sr_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];

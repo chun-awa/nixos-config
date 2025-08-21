@@ -1,9 +1,21 @@
 {
+  inputs,
   lib,
   config,
   modulesPath,
   ...
 }: {
+  imports = lib.flatten [
+    (with inputs.nixos-hardware.nixosModules; [
+      common-cpu-amd
+      common-cpu-amd-pstate
+      common-cpu-amd-zenpower
+      common-gpu-amd
+      common-pc-laptop
+      common-pc-laptop-ssd
+    ])
+  ];
+
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
