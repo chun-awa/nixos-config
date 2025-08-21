@@ -16,10 +16,6 @@
       terminus_font
       cozette
       dejavu_fonts
-      (with maple-mono; [
-        NF
-        NF-CN
-      ])
       (with nerd-fonts; [
         jetbrains-mono
         fira-code
