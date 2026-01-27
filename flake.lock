@@ -24,11 +24,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1769155497,
-        "narHash": "sha256-juDR3b7oLr7Y9fGTFiCexWhENd0SxITaF1bIZ+dje68=",
+        "lastModified": 1769399286,
+        "narHash": "sha256-VXhJXw/9EhNc5xXUzxdpi7dkcY03PdR9bCfp2m1aJu0=",
         "owner": "chun-awa",
         "repo": "dotfiles",
-        "rev": "6e4740c7f468f2eca0786578218c0e793db66089",
+        "rev": "abce9f193ca3e59f607dd2a99744cf3e86fd6935",
         "type": "github"
       },
       "original": {
@@ -228,11 +228,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769308329,
-        "narHash": "sha256-soMyrrHAVhbeJejJs7iYHmQ7R/jyo8DGztwsRGFugL4=",
+        "lastModified": 1769394662,
+        "narHash": "sha256-8WqHyDIAoxKvo7aBysePENtOmyDYxHQ0UbPu9YUbXug=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "e76cc3d974e79645bcc4e3fd2c536727a7d06f7d",
+        "rev": "f7acefa4dfd46bb51924b563e941b7b4ed5fac9c",
         "type": "github"
       },
       "original": {
